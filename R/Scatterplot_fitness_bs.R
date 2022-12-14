@@ -28,23 +28,23 @@ Scatterplot_fitness_bs<-function(input=input,
   # anno_single[as.numeric(position)>166,RAF_type:="HVR"]
   anno_single[,RAF_type_bs:="others"]
   anno_single[get(paste0("scHAmin_ligand_",assay_sele))<5,RAF_type_bs:="binding interface"]
-  ggplot()+
-    geom_point(data=anno_single[position>1&RAF_type_bs=="others",],
-               aes(x=nor_fitness_nooverlap_stab,y=get(paste0("nor_fitness_nooverlap_",assay_sele))),color="black",alpha=0.6,size=0.1)+
-    geom_point(data=anno_single[position>1&RAF_type_bs=="binding interface"],
+  ggplot2::ggplot()+
+    ggplot2::geom_point(data=anno_single[position>1&RAF_type_bs=="others",],
+               ggplot2::aes(x=nor_fitness_nooverlap_stab,y=get(paste0("nor_fitness_nooverlap_",assay_sele))),color="black",alpha=0.6,size=0.1)+
+    ggplot2::geom_point(data=anno_single[position>1&RAF_type_bs=="binding interface"],
                aes(x=nor_fitness_nooverlap_stab,y=get(paste0("nor_fitness_nooverlap_",assay_sele))),color=colour_scheme[["red"]],alpha=0.6,size=0.5)+
-    theme_classic2()+
-    labs(color=NULL)+
-    xlab("Abundance")+
-    ylab("RAF1 Binding")+
-    theme(text = element_text(size=7),
+    ggplot2::theme_classic2()+
+    ggplot2::labs(color=NULL)+
+    ggplot2::xlab("Abundance")+
+    ggplot2::ylab("RAF1 Binding")+
+    ggplot2::theme(text = ggplot2::element_text(size=7),
           legend.position="right",
-          legend.text = element_text(size=7),
-          axis.text.x = element_text(size =7, vjust=.5, hjust=.5),
-          axis.text.y = element_text(size=7, vjust = .5,hjust = .5,margin=margin(0,0,0,0,"mm")),
-          legend.key.height= unit(3.1, 'mm'),
-          legend.key.width = unit(3.1, 'mm'),
-          legend.key.size = unit(1,"mm"),
-          plot.margin=margin(0,0,0,0))+
-    coord_fixed(ratio = 1, xlim = NULL, ylim = NULL, expand = TRUE, clip = "on")
+          legend.text = ggplot2::element_text(size=7),
+          axis.text.x = ggplot2::element_text(size =7, vjust=.5, hjust=.5),
+          axis.text.y = ggplot2::element_text(size=7, vjust = .5,hjust = .5,margin=ggplot2::margin(0,0,0,0,"mm")),
+          legend.key.height= ggplot2::unit(3.1, 'mm'),
+          legend.key.width = ggplot2::unit(3.1, 'mm'),
+          legend.key.size = ggplot2::unit(1,"mm"),
+          plot.margin=ggplot2::margin(0,0,0,0))+
+    ggplot2::coord_fixed(ratio = 1, xlim = NULL, ylim = NULL, expand = TRUE, clip = "on")
 }

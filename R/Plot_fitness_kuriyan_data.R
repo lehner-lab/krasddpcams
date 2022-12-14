@@ -15,7 +15,7 @@ Plot_fitness_kuriyan_data<-function(fitness=fitness,
   # cor_fit<-cor(merge_dt[,nor_fitness],
   #              merge_dt[,eval(kuriyan_assay)],method="pearson",use="pairwise.complete.obs")
   merge_dt
-  # ggplot(merge_dt,aes(y=nor_fitness,x=KRas173_RBD))+
+  # ggplot2::ggplot(merge_dt,aes(y=nor_fitness,x=KRas173_RBD))+
   #   geom_bin2d(bins = 200)+
   #   scale_fill_gradient(low="white",high="black",trans="log")+
   #   geom_smooth(method="lm") +

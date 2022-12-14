@@ -84,37 +84,37 @@ Merge_ddGf_fitness<-function(prediction=prediction,
   pre_nor[phenotype==3,pre_nor_fitness:=predicted_fitness*d3+e3]
   pre_nor
   # output<-list()
-  # output[["p1"]]<-ggplot(data=pre_nor[Abundance1==1|Abundance2==1|Abundance3==1,],aes(x=additive_trait,y=ob_nor_fitness))+
+  # output[["p1"]]<-ggplot2::ggplot(data=pre_nor[Abundance1==1|Abundance2==1|Abundance3==1,],aes(x=additive_trait,y=ob_nor_fitness))+
   #   geom_bin2d(bins = 100) +
   #   scale_fill_gradient(low="white",high="black") +
   #   geom_line(aes(x=additive_trait,y=pre_nor_fitness),color="red",trans = "log")+
   #   theme_bw()
-  # output[["p2"]]<-ggplot(data=pre_nor[Abundance1==1,],aes(x=additive_trait,y=ob_nor_fitness))+
+  # output[["p2"]]<-ggplot2::ggplot(data=pre_nor[Abundance1==1,],aes(x=additive_trait,y=ob_nor_fitness))+
   #   geom_bin2d(bins = 100) +
   #   scale_fill_gradient(low="white",high="black") +
   #   geom_line(aes(x=additive_trait,y=pre_nor_fitness),color="red",trans = "log")+
   #   theme_bw()
-  # output[["p3"]]<-ggplot(data=pre_nor[Abundance2==1,],aes(x=additive_trait,y=ob_nor_fitness))+
+  # output[["p3"]]<-ggplot2::ggplot(data=pre_nor[Abundance2==1,],aes(x=additive_trait,y=ob_nor_fitness))+
   #   geom_bin2d(bins = 100) +
   #   scale_fill_gradient(low="white",high="black") +
   #   geom_line(aes(x=additive_trait,y=pre_nor_fitness),color="red",trans = "log")+
   #   theme_bw()
-  # output[["p4"]]<-ggplot(data=pre_nor[Abundance3==1,],aes(x=additive_trait,y=ob_nor_fitness))+
+  # output[["p4"]]<-ggplot2::ggplot(data=pre_nor[Abundance3==1,],aes(x=additive_trait,y=ob_nor_fitness))+
   #   geom_bin2d(bins = 100) +
   #   scale_fill_gradient(low="white",high="black") +
   #   geom_line(aes(x=additive_trait,y=pre_nor_fitness),color="red",trans = "log")+
   #   theme_bw()
-  # output[["p5"]]<-ggplot(data=pre_nor[Abundance1==1&is.na(AA_Pos2),],aes(x=additive_trait0,y=ob_nor_fitness))+
+  # output[["p5"]]<-ggplot2::ggplot(data=pre_nor[Abundance1==1&is.na(AA_Pos2),],aes(x=additive_trait0,y=ob_nor_fitness))+
   #   geom_bin2d(bins = 100) +
   #   scale_fill_gradient(low="white",high="black",trans = "log") +
   #   geom_line(aes(x=additive_trait0,y=mean),color="red")+
   #   theme_bw()
-  # output[["p6"]]<-ggplot(data=pre_nor[Abundance2==1&is.na(AA_Pos2),],aes(x=additive_trait0,y=ob_nor_fitness))+
+  # output[["p6"]]<-ggplot2::ggplot(data=pre_nor[Abundance2==1&is.na(AA_Pos2),],aes(x=additive_trait0,y=ob_nor_fitness))+
   #   geom_bin2d(bins = 100) +
   #   scale_fill_gradient(low="white",high="black") +
   #   geom_line(aes(x=additive_trait0,y=mean),color="red")+
   #   theme_bw()
-  # output[["p7"]]<-ggplot(data=pre_nor[Abundance3==1&is.na(AA_Pos2),],aes(x=additive_trait0,y=ob_nor_fitness))+
+  # output[["p7"]]<-ggplot2::ggplot(data=pre_nor[Abundance3==1&is.na(AA_Pos2),],aes(x=additive_trait0,y=ob_nor_fitness))+
   #   geom_bin2d(bins = 100) +
   #   scale_fill_gradient(low="white",high="black",trans = "log") +
   #   geom_line(aes(x=additive_trait0,y=mean),color="red")+

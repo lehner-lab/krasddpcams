@@ -102,14 +102,14 @@ Plot_major_allosteric_site_combined_threshold<-function(ddG1=ddG1,
     allosteric_list[[assayi]][["Major allosteric site"]]<-data_plot[site_type=="Major allosteric site"&assay==assayi,Pos]
   }
   
-  allosteric_list[["p"]]<-ggplot()+
-    geom_point(data=data_plot,
-               mapping = aes(x=distance_bp,
+  allosteric_list[["p"]]<-ggplot2::ggplot()+
+    ggplot2::geom_point(data=data_plot,
+               mapping = ggplot2::aes(x=distance_bp,
                              y=mean,
                              color=site_type,
                              shape=as.factor(shape_beta)),
                size=0.35)+
-    scale_color_manual(values=c(colour_scheme[["red"]],
+    ggplot2::scale_color_manual(values=c(colour_scheme[["red"]],
                                 colour_scheme[["blue"]],
                                 colour_scheme[["light blue"]],
                                 colour_scheme[["green"]],
@@ -120,36 +120,36 @@ Plot_major_allosteric_site_combined_threshold<-function(ddG1=ddG1,
                                 "Major allosteric",
                                 "Others"
                        ))+
-    geom_pointrange(data=data_plot,aes(x=distance_bp,
+    ggplot2::geom_pointrange(data=data_plot,ggplot2::aes(x=distance_bp,
                                        y=mean,
                                        color=site_type,ymin=mean-sigma, ymax=mean+sigma,
                                        shape=as.factor(shape_beta)),size=0.35)+
-    geom_hline(yintercept = reg_threshold,linetype =2,size=0.1)+
-    geom_vline(xintercept = 5,linetype =2,size=0.1)+
-    geom_hline(yintercept = 0,linetype ="solid",size=0.1)+
-    geom_vline(xintercept = 0,linetype ="solid",size=0.1)+
-    geom_text_repel(data=data_plot[site_type=="Major allosteric site",],aes(x=distance_bp,
+    ggplot2::geom_hline(yintercept = reg_threshold,linetype =2,size=0.1)+
+    ggplot2::geom_vline(xintercept = 5,linetype =2,size=0.1)+
+    ggplot2::geom_hline(yintercept = 0,linetype ="solid",size=0.1)+
+    ggplot2::geom_vline(xintercept = 0,linetype ="solid",size=0.1)+
+    ggplot2::geom_text_repel(data=data_plot[site_type=="Major allosteric site",],ggplot2::aes(x=distance_bp,
                                                                             y=mean,label=Pos),nudge_y=0.05,color=colour_scheme[["green"]],size=5*0.35)+
-    geom_text_repel(data=data_plot[site_type=="Allosteric GTP pocket site",],aes(x=distance_bp,
+    ggplot2::geom_text_repel(data=data_plot[site_type=="Allosteric GTP pocket site",],ggplot2::aes(x=distance_bp,
                                                                                  y=mean,label=Pos),nudge_y=0.05,color=colour_scheme[["blue"]],size=5*0.35)+
-    xlab(expression(paste("Distance to binding parnter ("*ring(A)*")")))+
-    ylab("Weighted mean |ddG| (kcal/mol)")+
-    labs(color=NULL)+
-    facet_wrap(~assay,ncol=3)+
-    theme_classic()+
-    theme(axis.text.x = element_text(size =7, vjust=.5, hjust=.5),
-          axis.text.y = element_text(size=7, vjust = .5,hjust =.5),
-          text = element_text(size=7),
+    ggplot2::xlab(expression(paste("Distance to binding parnter ("*ring(A)*")")))+
+    ggplot2::ylab("Weighted mean |ddG| (kcal/mol)")+
+    ggplot2::labs(color=NULL)+
+    ggplot2::facet_wrap(~assay,ncol=3)+
+    ggplot2::theme_classic()+
+    ggplot2::theme(axis.text.x = ggplot2::lement_text(size =7, vjust=.5, hjust=.5),
+          axis.text.y = ggplot2::element_text(size=7, vjust = .5,hjust =.5),
+          text = ggplot2::element_text(size=7),
           legend.position="right",
-          strip.text.x = element_text(size=7),
-          strip.background = element_rect(colour="white", fill="white"),
-          panel.spacing = unit(0.2, "mm"),
-          #legend.key.height= unit(3.1, 'mm'),
-          #legend.key.width = unit(5, 'mm'),
-          legend.text = element_text(size=5),plot.margin=margin(0,1,0,1,"mm"),
-          legend.margin=margin(0,0,0,l=-2,"mm"),
-          legend.spacing.y = unit(0, 'mm'),
-          legend.key.height=unit(4,"mm"))+
-    labs(shape=NULL)
+          strip.text.x = ggplot2::element_text(size=7),
+          strip.background = ggplot2::element_rect(colour="white", fill="white"),
+          panel.spacing = ggplot2::unit(0.2, "mm"),
+          #legend.key.height= ggplot2::unit(3.1, 'mm'),
+          #legend.key.width = ggplot2::unit(5, 'mm'),
+          legend.text = ggplot2::element_text(size=5),plot.margin=ggplot2::margin(0,1,0,1,"mm"),
+          legend.margin=ggplot2::margin(0,0,0,l=-2,"mm"),
+          legend.spacing.y = ggplot2::unit(0, 'mm'),
+          legend.key.height=ggplot2::unit(4,"mm"))+
+    ggplot2::labs(shape=NULL)
   return(allosteric_list)
 }

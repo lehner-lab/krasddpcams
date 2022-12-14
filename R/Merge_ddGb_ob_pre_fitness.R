@@ -76,7 +76,7 @@ Merge_ddGb_ob_pre_fitness<-function(prediction=prediction,
   pre_nor[phenotype==2+nb,pre_nor_fitness:=predicted_fitness*d2+e2]
   pre_nor[phenotype==3+nb,pre_nor_fitness:=predicted_fitness*d3+e3]
   pre_nor
-  # ggplot(data=pre_nor[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,],aes(x=ob_nor_fitness,y=pre_nor_fitness))+
+  # ggplot2::ggplot(data=pre_nor[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,],aes(x=ob_nor_fitness,y=pre_nor_fitness))+
   #   geom_bin2d(bins = 100) +
   #   scale_fill_gradient(low="white",high="black") +
   #   geom_smooth(method="lm") +

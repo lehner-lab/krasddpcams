@@ -10,7 +10,7 @@ Plot2d_ddGf_ob_pre_fitness_perblock<-function(pre_nor=pre_nor,
                                           phenotypen=phenotypen){
   pre_nor
   lm_mochi<-lm(pre_nor_fitness~ob_nor_fitness,pre_nor[phenotype==phenotypen,])
-  ggplot()+
+  ggplot2::ggplot()+
     stat_binhex(data=pre_nor[phenotype==phenotypen,],aes(x=ob_nor_fitness,y=pre_nor_fitness),
                 bins = 50,size=0,color="black") +
     scale_fill_gradient(low="white",high="black",trans="log10") +

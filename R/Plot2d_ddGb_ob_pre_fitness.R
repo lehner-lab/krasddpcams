@@ -76,7 +76,7 @@ Plot2d_ddGb_ob_pre_fitness<-function(prediction=prediction,
   pre_nor[phenotype==2+nb,pre_nor_fitness:=predicted_fitness*d2+e2]
   pre_nor[phenotype==3+nb,pre_nor_fitness:=predicted_fitness*d3+e3]
   lm_mochi<-lm(predicted_fitness~fitness,pre_nor[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,])
-  ggplot(data=pre_nor[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,],aes(x=fitness,y=predicted_fitness))+
+  ggplot2::ggplot(data=pre_nor[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,],aes(x=fitness,y=predicted_fitness))+
     stat_binhex(bins = 50,size=0,color="black") +
     scale_fill_gradient(low="white",high="black",trans="log10") +
     annotate("text",x=-1,y=0.5,

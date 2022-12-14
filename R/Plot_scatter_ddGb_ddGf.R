@@ -23,23 +23,23 @@ Plot_scatter_ddGb_ddGf<-function(ddG1=ddG1,
   all_ddG_dc_anno<-merge(all_ddG_dc,anno,by.x="Pos_real",by.y="Pos")
   all_ddG_dc_anno[,RAF_type_bs:="others"]
   all_ddG_dc_anno[scHAmin_ligand_RAF<=5,RAF_type_bs:="binding interface"]
-  ggplot()+
-    geom_point(data=all_ddG_dc_anno[Pos_real>1&RAF_type_bs=="others",],
-               aes(x=folding,y=RAF1),color="black",alpha=0.6,size=0.1)+
-    geom_point(data=all_ddG_dc_anno[Pos_real>1&RAF_type_bs=="binding interface"],
-               aes(x=folding,y=RAF1),color=colour_scheme[["red"]],alpha=0.6,size=0.5)+
-    theme_classic2()+
-    labs(color=NULL)+
-    xlab("Folding ddG")+
-    ylab("Binding ddG")+
-    theme(text = element_text(size=7),
+  ggplot2::ggplot()+
+    ggplot2::geom_point(data=all_ddG_dc_anno[Pos_real>1&RAF_type_bs=="others",],
+               ggplot2::aes(x=folding,y=RAF1),color="black",alpha=0.6,size=0.1)+
+    ggplot2::geom_point(data=all_ddG_dc_anno[Pos_real>1&RAF_type_bs=="binding interface"],
+               ggplot2::aes(x=folding,y=RAF1),color=colour_scheme[["red"]],alpha=0.6,size=0.5)+
+    ggplot2::theme_classic2()+
+    ggplot2::labs(color=NULL)+
+    ggplot2::xlab("Folding ddG")+
+    ggplot2::ylab("Binding ddG")+
+    ggplot2::theme(text = ggplot2::element_text(size=7),
           legend.position="right",
-          legend.text = element_text(size=7),
-          axis.text.x = element_text(size =7, vjust=.5, hjust=.5),
-          axis.text.y = element_text(size=7, vjust = .5,hjust = .5,margin=margin(0,0,0,0,"mm")),
-          legend.key.height= unit(3.1, 'mm'),
-          legend.key.width = unit(3.1, 'mm'),
-          legend.key.size = unit(1,"mm"),
-          plot.margin=margin(0,0,0,0))+
-    coord_fixed(ratio = 1, xlim = NULL, ylim = NULL, expand = TRUE, clip = "on")
+          legend.text = ggplot2::element_text(size=7),
+          axis.text.x = ggplot2::element_text(size =7, vjust=.5, hjust=.5),
+          axis.text.y = ggplot2::element_text(size=7, vjust = .5,hjust = .5,margin=ggplot2::margin(0,0,0,0,"mm")),
+          legend.key.height= ggplot2::unit(3.1, 'mm'),
+          legend.key.width = ggplot2::unit(3.1, 'mm'),
+          legend.key.size = ggplot2::unit(1,"mm"),
+          plot.margin=ggplot2::margin(0,0,0,0))+
+    ggplot2::coord_fixed(ratio = 1, xlim = NULL, ylim = NULL, expand = TRUE, clip = "on")
 }

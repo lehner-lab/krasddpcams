@@ -25,28 +25,28 @@ Plot_binding_interface_mutation_heatmap<-function(ddG=ddG,
   ddG_plot[,assay:="RAF1"]
   ddG_plot[wt_codon==mt_codon,`mean_kcal/mol`:=0]
 
-  ggplot()+
-    geom_tile(data=ddG_plot,
-              aes(y=assay,x=mt_codon,fill=`mean_kcal/mol`))+
-    scale_fill_gradient2(low=colour_scheme[["blue"]],mid="gray",high=colour_scheme[["red"]],na.value = "white")+
-    geom_text(data=ddG_plot[Pos_real>1&wt_codon==mt_codon,],
-              aes(x=mt_codon,y=assay),label="-",size=5*5/14)+
-    facet_wrap(~wt_Pos,ncol=1)+
-    labs(fill="\u0394\u0394G(kcal/mol)",)+
-    xlab("Mutant aa")+
-    ylab(NULL)+
-    theme_classic2()+
-    ggplot2::theme(text = element_text(size=7),
-                   axis.ticks.x=element_blank(),
-                   axis.ticks.y=element_blank(),
+  ggplot2::ggplot()+
+    ggplot2::geom_tile(data=ddG_plot,
+              ggplot2::aes(y=assay,x=mt_codon,fill=`mean_kcal/mol`))+
+    ggplot2::scale_fill_gradient2(low=colour_scheme[["blue"]],mid="gray",high=colour_scheme[["red"]],na.value = "white")+
+    ggplot2::geom_text(data=ddG_plot[Pos_real>1&wt_codon==mt_codon,],
+              ggplot2::aes(x=mt_codon,y=assay),label="-",size=5*5/14)+
+    ggplot2::facet_wrap(~wt_Pos,ncol=1)+
+    ggplot2::labs(fill="\u0394\u0394G(kcal/mol)",)+
+    ggplot2::xlab("Mutant aa")+
+    ggplot2::ylab(NULL)+
+    ggplot2::theme_classic2()+
+    ggplot2::theme(text = ggplot2::element_text(size=7),
+                   axis.ticks.x=ggplot2::element_blank(),
+                   axis.ticks.y=ggplot2::element_blank(),
                    legend.position="right",
-                   legend.text = element_text(size=7),
-                   axis.text.x = element_text(size =5, vjust=.5, hjust=.5),
-                   axis.text.y = element_text(size=7, vjust = .5,hjust = .5,margin=margin(0,0,0,0,"mm")),
-                   legend.key.height= unit(3.1, 'mm'),
-                   legend.key.width = unit(3.1, 'mm'),
-                   legend.key.size = unit(1,"mm"),
-                   plot.margin=margin(0,0,0,0),
-                   strip.background = element_rect(color="white",fill=NULL,linetype = NULL))+
-    coord_fixed()
+                   legend.text = ggplot2::element_text(size=7),
+                   axis.text.x = ggplot2::element_text(size =5, vjust=.5, hjust=.5),
+                   axis.text.y = ggplot2::element_text(size=7, vjust = .5,hjust = .5,margin=ggplot2::margin(0,0,0,0,"mm")),
+                   legend.key.height= ggplot2::unit(3.1, 'mm'),
+                   legend.key.width = ggplot2::unit(3.1, 'mm'),
+                   legend.key.size = ggplot2::unit(1,"mm"),
+                   plot.margin=ggplot2::margin(0,0,0,0),
+                   strip.background = ggplot2::element_rect(color="white",fill=NULL,linetype = NULL))+
+    ggplot2::coord_fixed()
 }

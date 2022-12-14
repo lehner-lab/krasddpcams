@@ -18,19 +18,19 @@ Plot_RAL_invitro_cor_ITC<-function(ddG=ddG,
   christina_mochi_RAL_m_GDI<-lm(`mean_kcal/mol`~G_GDI,christina_mochi_RAL)
   christina_mochi_RAL[,ddG_ITC:=G_ITC-christina_mochi_RAL[id.RalGDS.RBD.christina=="WT"&mt=="WT",G_ITC]]
   christina_mochi_RAL[,ddG_GDI:=G_GDI-christina_mochi_RAL[id.RalGDS.RBD.christina=="WT"&mt=="WT",G_GDI]]
-  ggplot(christina_mochi_RAL,aes(x=ddG_ITC,y=`mean_kcal/mol`,label=mt))+
-    geom_smooth(method=lm, se=T,color=colour_scheme[["red"]])+
-    geom_point(size=0.1)+
-    xlab("Binding ddG to RALGDS (in vitro/ITC)\n(kcal/mol)")+
-    ylab("Binding ddG to RALGDS (inferred)\n(kcal/mol)")+
-    geom_pointrange(aes(ymin=`mean_kcal/mol`-`std_kcal/mol`, ymax=`mean_kcal/mol`+`std_kcal/mol`),size=0.1)+
-    geom_text_repel(hjust=0.5, vjust=2,size=7*0.35)+
-    annotate("text",x=0.5,y=1,
+  ggplot2::ggplot(christina_mochi_RAL,ggplot2::aes(x=ddG_ITC,y=`mean_kcal/mol`,label=mt))+
+    ggplot2::geom_smooth(method=lm, se=T,color=colour_scheme[["red"]])+
+    ggplot2::geom_point(size=0.1)+
+    ggplot2::xlab("Binding ddG to RALGDS (in vitro/ITC)\n(kcal/mol)")+
+    ggplot2::ylab("Binding ddG to RALGDS (inferred)\n(kcal/mol)")+
+    ggplot2::geom_pointrange(ggplot2::aes(ymin=`mean_kcal/mol`-`std_kcal/mol`, ymax=`mean_kcal/mol`+`std_kcal/mol`),size=0.1)+
+    ggplot2::geom_text_repel(hjust=0.5, vjust=2,size=7*0.35)+
+    ggplot2::annotate("text",x=0.5,y=1,
              label = paste0("r = ",round(sqrt(summary(christina_mochi_RAL_m_ITC)$r.squared),3)),
              size=7*0.35 )+
-    theme_classic2()+
-    ylim(-1,1.8)+
-    theme(text = element_text(size = 7),
-          axis.text = element_text(size = 7),legend.text = element_text(size = 7))+
-    coord_fixed()
+    ggplot2::theme_classic2()+
+    ggplot2::ylim(-1,1.8)+
+    ggplot2::theme(text = ggplot2::element_text(size = 7),
+          axis.text = ggplot2::element_text(size = 7),legend.text = ggplot2::element_text(size = 7))+
+    ggplot2::coord_fixed()
 }

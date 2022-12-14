@@ -56,11 +56,11 @@ Plot_allosteric_mutations<-function(
                                                             "GTP binding other mutation",
                                                             "Allosteric mutation",
                                                             "Other mutation")))
-  ggplot()+
-    geom_rect(data=rect_input,aes(ymin=-1.5,ymax=3.5,xmin=xstart-0.5,xmax=xend+0.5),fill="black",alpha=0.08)+
-    geom_rect(data=rect_alpha,aes(ymin=-1.5,ymax=3.5,xmin=xstart-0.5,xmax=xend+0.5),fill="black",alpha=0.05)+
-    geom_point(data=data_plot_mutation,aes(x=Pos,y=`mean_kcal/mol`,color=mutation_type),size=0.1)+
-      scale_color_manual(values=c(colour_scheme[["red"]],
+  ggplot2::ggplot()+
+    ggplot2::geom_rect(data=rect_input,ggplot2::aes(ymin=-1.5,ymax=3.5,xmin=xstart-0.5,xmax=xend+0.5),fill="black",alpha=0.08)+
+    ggplot2::geom_rect(data=rect_alpha,ggplot2::aes(ymin=-1.5,ymax=3.5,xmin=xstart-0.5,xmax=xend+0.5),fill="black",alpha=0.05)+
+    ggplot2::geom_point(data=data_plot_mutation,ggplot2::aes(x=Pos,y=`mean_kcal/mol`,color=mutation_type),size=0.1)+
+      ggplot2::scale_color_manual(values=c(colour_scheme[["red"]],
                                   colour_scheme[["pink"]],
                                   colour_scheme[["blue"]],
                                   colour_scheme[["light blue"]],
@@ -85,20 +85,20 @@ Plot_allosteric_mutations<-function(
                                         "=",length(unique(data_plot_mutation[mutation_type=="Other mutation",Pos])),
                                         "muts = ",nrow(data_plot_mutation[mutation_type=="Other mutation",]))
                          ))+
-      geom_hline(yintercept = 0,linetype =2)+
-      scale_x_continuous(expand=c(1/188,11/188))+
-      ylab("Binding G(kcal/mol)")+
-      xlab("Amino acid position")+
-      labs(color=NULL)+
-      theme_classic2()+
-      theme(axis.text.x = element_text(size =7, vjust=.5, hjust=.5),
-            axis.text.y = element_text(size=7, vjust = .5,hjust = .5),
-            text = element_text(size=7),
+      ggplot2::geom_hline(yintercept = 0,linetype =2)+
+      ggplot2::scale_x_continuous(expand=c(1/188,11/188))+
+      ggplot2::ylab("Binding G(kcal/mol)")+
+      ggplot2::xlab("Amino acid position")+
+      ggplot2::labs(color=NULL)+
+      ggplot2::theme_classic2()+
+      ggplot2::theme(axis.text.x = ggplot2::element_text(size =7, vjust=.5, hjust=.5),
+            axis.text.y = ggplot2::element_text(size=7, vjust = .5,hjust = .5),
+            text = ggplot2::element_text(size=7),
             legend.position="top",
             #legend.key.height= unit(3.1, 'mm'),
             #legend.key.width = unit(5, 'mm'),
-            legend.text = element_text(size=7),
-            strip.background = element_rect(colour="black", fill="white"))+
-      coord_fixed(ratio=10)
+            legend.text = ggplot2::element_text(size=7),
+            strip.background = ggplot2::element_rect(colour="black", fill="white"))+
+      ggplot2::coord_fixed(ratio=10)
   
 }
