@@ -16,8 +16,7 @@ To run the doubledeepms pipeline you will need the following software and associ
 
 # Required Data
 
-Fitness, inferred free energy changes, structure, and other data are in [here]
-(https://crgcnag-my.sharepoint.com/personal/cweng_crg_es/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fcweng%5Fcrg%5Fes%2FDocuments%2FDATA&ga=1)
+Fitness, inferred free energy changes, structure, and other data are in **[here](https://crgcnag-my.sharepoint.com/personal/cweng_crg_es/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fcweng%5Fcrg%5Fes%2FDocuments%2FDATA&ga=1)**
 
 # Main function
 
