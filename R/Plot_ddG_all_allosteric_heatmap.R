@@ -79,29 +79,29 @@ Plot_ddG_all_allosteric_heatmap<-function(ddG1=ddG1,
   output<-within(output,
                  wtcodon_pos <- factor(wtcodon_pos,
                                        levels = unique(output[order(Pos_real),wtcodon_pos])))
-  ggplot2::ggplot()+
-    ggplot2::geom_tile(data=output,mapping=ggplot2::aes(x=assay,y=mt_codon,fill=`mean_kcal/mol`))+
-    ggplot2::geom_text(data=output[Pos_real>1&wt_codon==mt_codon,],
-              mapping=ggplot2::aes(x=assay,y=mt_codon,label="-"),size=5*5/14)+
-    ggplot2::scale_fill_gradient2(low=colour_scheme[["blue"]],mid="gray",high=colour_scheme[["red"]],na.value = "white")+
-    ggplot2::facet_wrap(~wtcodon_pos,nrow = 2)+
-    ggplot2::ylab("Mutant AA")+
-    ggplot2::xlab("Binding partners")+
-    ggplot2::labs(fill=NULL)+
-    ggplot2::theme_bw()+
-    ggplot2::theme(text = ggplot2::element_text(size=7),
-          axis.ticks.x=ggplot2::element_blank(),
-          axis.ticks.y=ggplot2::element_blank(),
+  ggplot()+
+    geom_tile(data=output,mapping=aes(x=assay,y=mt_codon,fill=`mean_kcal/mol`))+
+    geom_text(data=output[Pos_real>1&wt_codon==mt_codon,],
+              mapping=aes(x=assay,y=mt_codon,label="-"),size=5*5/14)+
+    scale_fill_gradient2(low=colour_scheme[["blue"]],mid="gray",high=colour_scheme[["red"]],na.value = "white")+
+    facet_wrap(~wtcodon_pos,nrow = 2)+
+    ylab("Mutant AA")+
+    xlab("Binding partners")+
+    labs(fill=NULL)+
+    theme_bw()+
+    theme(text = element_text(size=7),
+          axis.ticks.x=element_blank(),
+          axis.ticks.y=element_blank(),
           legend.position="bottom",
-          legend.text = ggplot2::element_text(size=7),
-          strip.text.x = ggplot2::element_text(size=7),
-          strip.background = ggplot2::element_rect(colour="white", fill="white"),
-          axis.text.x = ggplot2::element_text(size =5, angle=90, vjust=.5, hjust=1),
-          axis.text.y = ggplot2::element_text(family="Courier New",size=5, vjust = .5,hjust = -10,margin=ggplot2::margin(0,0,0,0)),
-          panel.spacing.y = ggplot2::unit(3, "mm"),
-          panel.spacing.x = ggplot2::unit(1, "mm"),
-          legend.key.height= ggplot2::unit(3.1, 'mm'),
-          legend.key.width = ggplot2::unit(2, 'mm'),
-          legend.key.size = ggplot2::unit(1,"mm"))+
-    ggplot2::coord_fixed()
+          legend.text = element_text(size=7),
+          strip.text.x = element_text(size=7),
+          strip.background = element_rect(colour="white", fill="white"),
+          axis.text.x = element_text(size =5, angle=90, vjust=.5, hjust=1),
+          axis.text.y = element_text(family="Courier New",size=5, vjust = .5,hjust = -10,margin=margin(0,0,0,0)),
+          panel.spacing.y = unit(3, "mm"),
+          panel.spacing.x = unit(1, "mm"),
+          legend.key.height= unit(3.1, 'mm'),
+          legend.key.width = unit(2, 'mm'),
+          legend.key.size = unit(1,"mm"))+
+    coord_fixed()
 }

@@ -83,22 +83,22 @@ Get_common_interface<-function(anno_input=anno_input){
   #                                binding<-factor(binding,
   #                                               levels=c("common","contact","no")))
   output<-list()
-  output[["p"]]<-ggplot2::ggplot(matrix_common_long_all,ggplot2::aes(x=wt_pos,y=assay,fill=binding))+
-    ggplot2::geom_tile(color="black")+
-    ggplot2::scale_fill_manual(values=c("orange","yellow","white"))+
-    ggplot2::theme_classic2()+
-    ggplot2::coord_fixed()+
-    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 7,angle = 90, vjust = .5,hjust = 0.5),
-          axis.text.y = ggplot2::element_text(size = 7,vjust = .5,hjust = .5),
-          text = ggplot2::element_text(size=7),
-          legend.text = ggplot2::element_text(size=7),
-          axis.ticks.x=ggplot2::element_blank(),
-          axis.ticks.y=ggplot2::element_blank(),
+  output[["p"]]<-ggplot(matrix_common_long_all,aes(x=wt_pos,y=assay,fill=binding))+
+    geom_tile(color="black")+
+    scale_fill_manual(values=c("orange","yellow","white"))+
+    theme_classic2()+
+    coord_fixed()+
+    theme(axis.text.x = element_text(size = 7,angle = 90, vjust = .5,hjust = 0.5),
+          axis.text.y = element_text(size = 7,vjust = .5,hjust = .5),
+          text = element_text(size=7),
+          legend.text = element_text(size=7),
+          axis.ticks.x=element_blank(),
+          axis.ticks.y=element_blank(),
           legend.position="right",
-          legend.key.height= ggplot2::unit(3.1, 'mm'),
-          legend.key.width= ggplot2::unit(3.1, 'mm'))+
-    ggplot2::ylab(NULL)+
-    ggplot2::xlab(NULL)
+          legend.key.height= unit(3.1, 'mm'),
+          legend.key.width= unit(3.1, 'mm'))+
+    ylab(NULL)+
+    xlab(NULL)
   output[["matrix"]]<-matrix_common_long_all
   output
 }

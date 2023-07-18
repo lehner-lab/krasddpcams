@@ -60,7 +60,7 @@ Plot_allosteric_ddG_dis_pocket_color<-function(
   data_plot_mutation<-within(data_plot_mutation,
                              factor(colors_type2,
                                     levels = c("Pocket allosteric mutation","Other pocket mutation","Other")))
-  ggplot2::ggplot(data_plot_mutation,aes(x=scHAmin_ligand_RAF,y=`mean_kcal/mol`))+
+  ggplot(data_plot_mutation,aes(x=scHAmin_ligand_RAF,y=`mean_kcal/mol`))+
     geom_point(aes(color=colors_type2),size=0.1)+
     geom_vline(xintercept = 5,linetype =2)+
     scale_color_manual(values = c("gray",colour_scheme[["pink"]],colour_scheme[["red"]]),

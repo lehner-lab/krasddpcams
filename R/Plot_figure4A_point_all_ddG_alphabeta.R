@@ -78,23 +78,23 @@ Plot_figure4A_point_all_ddG_alphabeta<-function(
                                                          "K27",
                                                          "K55",
                                                          "no")))
-  ggplot2::ggplot()+
-    ggplot2::geom_rect(data=rects_dt,ggplot2::aes(ymin=-2,ymax=3.5,xmin=xstart-0.5,xmax=xend+0.5),fill="black",alpha=0.08)+
-    ggplot2::geom_rect(data=rects_alphas,ggplot2::aes(ymin=-2,ymax=3.5,xmin=xstart-0.5,xmax=xend+0.5),fill="black",alpha=0.05)+
-    ggplot2::geom_jitter(data=all_data_25_anno_bs[id!="WT"],ggplot2::aes(x=Pos_real,y=`mean_kcal/mol`,color=binding),size=0.1,width=0.4,height = 0)+
-    ggplot2::facet_wrap(~assay,nrow = 7)+
-    ggplot2::scale_x_continuous(expand=c(1/188,11/188),breaks=seq(0,187,5),
+  ggplot()+
+    geom_rect(data=rects_dt,aes(ymin=-2,ymax=3.5,xmin=xstart-0.5,xmax=xend+0.5),fill="black",alpha=0.08)+
+    geom_rect(data=rects_alphas,aes(ymin=-2,ymax=3.5,xmin=xstart-0.5,xmax=xend+0.5),fill="black",alpha=0.05)+
+    geom_jitter(data=all_data_25_anno_bs[id!="WT"],aes(x=Pos_real,y=`mean_kcal/mol`,color=binding),size=0.1,width=0.4,height = 0)+
+    facet_wrap(~assay,nrow = 7)+
+    scale_x_continuous(expand=c(1/188,11/188),breaks=seq(0,187,5),
                        minor_breaks = seq(2,187,1))+
-    ggplot2::scale_color_manual(values=c(colour_scheme[["dark green"]], colour_scheme[["orange"]],"gray",
+    scale_color_manual(values=c(colour_scheme[["dark green"]], colour_scheme[["orange"]],"gray",
                                 colour_scheme[["blue"]],colour_scheme[["blue"]],
                                 colour_scheme[["purple"]],colour_scheme[["red"]],colour_scheme[["red"]],
                                 colour_scheme[["red"]],colour_scheme[["red"]],colour_scheme[["red"]],colour_scheme[["red"]],"gray"))+
-    ggplot2::theme_classic()+
-    ggplot2::theme(text = ggplot2::element_text(size = 7),
-          axis.text = ggplot2::element_text(size = 7),legend.text = ggplot2::element_text(size = 7),
+    theme_classic()+
+    theme(text = element_text(size = 7),
+          axis.text = element_text(size = 7),legend.text = element_text(size = 7),
           legend.position="bottom",
-          panel.spacing.y = ggplot2::unit(1, "mm"),
-          strip.background = ggplot2::element_rect(color="black",fill=NULL,linetype="solid")
+          panel.spacing.y = unit(1, "mm"),
+          strip.background = element_rect(color="black",fill=NULL,linetype="solid")
     )+
-    ggplot2::coord_fixed(ratio=2)
+    coord_fixed(ratio=2)
 }

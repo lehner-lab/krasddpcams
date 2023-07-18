@@ -66,7 +66,7 @@ Plot_allosteric_mut_distance_2colors<-function(
   data_plot_mutation[mutation_type=="GTP binding site",colors_type2:="GTP"]
   data_plot_mutation[mutation_type=="GTP binding site"&colors_type!="others",colors_type2:="GTP+beta sheet"]
   #data_plot_mutation
-  # ggplot2::ggplot(data_plot_mutation,aes(x=scHAmin_ligand_RAF,y=`mean_kcal/mol`))+
+  # ggplot(data_plot_mutation,aes(x=scHAmin_ligand_RAF,y=`mean_kcal/mol`))+
   #   geom_point(aes(color=colors_type2),size=1)+
   #   geom_hline(yintercept = reg_threshold,linetype =2)+
   #   geom_hline(yintercept = -reg_threshold,linetype =2)+
@@ -76,7 +76,7 @@ Plot_allosteric_mut_distance_2colors<-function(
   #   xlab(expression(paste("Distance to binding parnter ("*ring(A)*")")))+
   #   theme_bw()+
   #   coord_fixed(ratio = 5)
-  ggplot2::ggplot(data_plot_mutation,aes(x=scHAmin_ligand_RAF,y=`mean_kcal/mol`))+
+  ggplot(data_plot_mutation,aes(x=scHAmin_ligand_RAF,y=`mean_kcal/mol`))+
     geom_smooth(data=data_plot_mutation[colors_type2=="others",],method=lm,se=T,color="black")+
     geom_smooth(data=data_plot_mutation[colors_type2=="beta sheet"|colors_type2=="GTP+beta sheet",],method=lm,se=T,color=colour_scheme[["red"]])+
     geom_smooth(data=data_plot_mutation[colors_type2=="GTP"|colors_type2=="GTP+beta sheet",],method=lm,se=T,color=colour_scheme[["blue"]])+

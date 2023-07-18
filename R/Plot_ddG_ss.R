@@ -74,17 +74,17 @@ Plot_ddG_ss<-function(
   data_plot_mutation[Pos>=rects_alphas[col=="a4",xstart]&Pos<=rects_alphas[col=="a4",xend],colors_type:="a4"]
   data_plot_mutation[Pos>=rects_alphas[col=="a5",xstart]&Pos<=rects_alphas[col=="a5",xend],colors_type:="a5"]
   data_plot_mutation_final<-data_plot_mutation[mutation_type!="Orthosteric site",]
-  ggplot2::ggplot()+
-    ggplot2::geom_bar(data=data_plot_mutation_final,ggplot2::aes(x=..count..,fill=allosteric_mutation,y=colors_type,group=allosteric_mutation),position="stack",stat="count")+
-    ggplot2::geom_text(data=data_plot_mutation_final,ggplot2::aes(x=..count..,label=..count..,y=colors_type,group=allosteric_mutation),position="stack",stat="count",size=7*0.35)+
+  ggplot()+
+    geom_bar(data=data_plot_mutation_final,aes(x=..count..,fill=allosteric_mutation,y=colors_type,group=allosteric_mutation),position="stack",stat="count")+
+    geom_text(data=data_plot_mutation_final,aes(x=..count..,label=..count..,y=colors_type,group=allosteric_mutation),position="stack",stat="count",size=7*0.35)+
     ggplot2::xlab("Mutations") +
     ggplot2::ylab("Secondary structure") +
     ggplot2::theme_classic() +
-    ggplot2::theme(text = ggplot2::element_text(size = 7),
-                   axis.text = ggplot2::element_text(size = 7),legend.text = ggplot2::element_text(size = 7))+
+    ggplot2::theme(text = element_text(size = 7),
+                   axis.text = element_text(size = 7),legend.text = element_text(size = 7))+
     ggplot2::ggtitle(assay_sele) +
     ggplot2::labs(fill = "Allosteric\nmutations")+
-    ggplot2::scale_fill_manual(values = c("gray",colour_scheme[["red"]]),
+    scale_fill_manual(values = c("gray",colour_scheme[["red"]]),
                       labels=c("Others","Allosteric mutations")
     )
 }

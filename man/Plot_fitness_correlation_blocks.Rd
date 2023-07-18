@@ -2,7 +2,7 @@
 % Please edit documentation in R/Plot_fitness_correlation_blocks.R
 \name{Plot_fitness_correlation_blocks}
 \alias{Plot_fitness_correlation_blocks}
-\title{A Function to plot fitness correlation between blocks}
+\title{A Function to plot fitness correlation between replicates}
 \usage{
 Plot_fitness_correlation_blocks(input = input, assay_name = assay_name)
 }
@@ -15,5 +15,5 @@ Plot_fitness_correlation_blocks(input = input, assay_name = assay_name)
 Nothing
 }
 \description{
-This function allows you to lot fitness correlation between blocks.
+This function allows you to lot fitness correlation between replicates
 }

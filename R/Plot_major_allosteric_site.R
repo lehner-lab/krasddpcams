@@ -50,14 +50,14 @@ Plot_major_allosteric_site<-function(ddG=ddG,
   allosteric_list[["Allosteric GTP pocket site"]]<-data_plot[site_type=="Allosteric GTP pocket site",Pos]
   allosteric_list[["Other GTP pocket site"]]<-data_plot[site_type=="Other GTP pocket site",Pos]
   allosteric_list[["Major allosteric site"]]<-data_plot[site_type=="Major allosteric site",Pos]
-  allosteric_list[["p"]]<-ggplot2::ggplot()+
-    ggplot2::geom_point(data=data_plot,
-               mapping = ggplot2::aes(x=get(paste0("scHAmin_ligand_",assay_name)),
+  allosteric_list[["p"]]<-ggplot()+
+    geom_point(data=data_plot,
+               mapping = aes(x=get(paste0("scHAmin_ligand_",assay_name)),
                              y=mean,
                              color=site_type,
                              shape=as.factor(shape_beta)),
                size=1,alpha=1/3)+
-    ggplot2::scale_color_manual(values=c(colour_scheme[["red"]], 
+    scale_color_manual(values=c(colour_scheme[["red"]], 
                                 colour_scheme[["blue"]],
                                 colour_scheme[["light blue"]],
                                 colour_scheme[["green"]],
@@ -73,31 +73,31 @@ Plot_major_allosteric_site<-function(ddG=ddG,
                                 paste("Others",
                                       "=",length(data_plot[site_type=="Reminder",Pos]))
                        ))+
-    ggplot2::geom_pointrange(data=data_plot,ggplot2::aes(x=get(paste0("scHAmin_ligand_",assay_name)),
+    geom_pointrange(data=data_plot,aes(x=get(paste0("scHAmin_ligand_",assay_name)),
                                        y=mean,
                                        color=site_type,ymin=mean-sigma, ymax=mean+sigma,
                                        shape=as.factor(shape_beta)),size=0.35)+
-    ggplot2::geom_hline(yintercept = reg_threshold,linetype =2,size=0.1)+
-    ggplot2::geom_vline(xintercept = 5,linetype =2,size=0.1)+
-    ggplot2::geom_text_repel(data=data_plot[site_type=="Major allosteric site",],ggplot2::aes(x=get(paste0("scHAmin_ligand_",assay_name)),
+    geom_hline(yintercept = reg_threshold,linetype =2,size=0.1)+
+    geom_vline(xintercept = 5,linetype =2,size=0.1)+
+    geom_text_repel(data=data_plot[site_type=="Major allosteric site",],aes(x=get(paste0("scHAmin_ligand_",assay_name)),
                                                                                                               y=mean,label=Pos),nudge_y=0.05,color=colour_scheme[["green"]],size=7*0.35)+
-    ggplot2::geom_text_repel(data=data_plot[site_type=="Allosteric GTP pocket site",],ggplot2::aes(x=get(paste0("scHAmin_ligand_",assay_name)),
+    geom_text_repel(data=data_plot[site_type=="Allosteric GTP pocket site",],aes(x=get(paste0("scHAmin_ligand_",assay_name)),
                                                                                                                     y=mean,label=Pos),nudge_y=0.05,color=colour_scheme[["blue"]],size=7*0.35)+
     ylab(paste("Weighted mean |ddG|(kcal/mol)"))+
     xlab(expression(paste("Distance to binding partner ("*ring(A)*")")))+
-    ggplot2::labs(color=NULL)+
-    ggplot2::theme_classic2()+
-    ggplot2::theme(axis.text.x = ggplot2::element_text(size =7, vjust=.5, hjust=.5),
-          axis.text.y = ggplot2::element_text(size=7, vjust = .5,hjust =.5),
-          text = ggplot2::element_text(size=7),
+    labs(color=NULL)+
+    theme_classic2()+
+    theme(axis.text.x = element_text(size =7, vjust=.5, hjust=.5),
+          axis.text.y = element_text(size=7, vjust = .5,hjust =.5),
+          text = element_text(size=7),
           legend.position="right",
           #legend.key.height= unit(3.1, 'mm'),
           #legend.key.width = unit(5, 'mm'),
-          legend.text = ggplot2::element_text(size=7),plot.margin=ggplot2::margin(0,1,0,1,"mm"),
-          legend.margin=ggplot2::margin(0,0,0,l=-2,"mm"),
-          legend.spacing.y = ggplot2::unit(0, 'mm'),
-          legend.key.height=ggplot2::unit(4,"mm"))+
-    ggplot2::labs(shape=NULL)+
-    ggplot2::coord_cartesian(xlim = c(0,34),ylim=c(0,2.3),)
+          legend.text = element_text(size=7),plot.margin=margin(0,1,0,1,"mm"),
+          legend.margin=margin(0,0,0,l=-2,"mm"),
+          legend.spacing.y = unit(0, 'mm'),
+          legend.key.height=unit(4,"mm"))+
+    labs(shape=NULL)+
+    coord_cartesian(xlim = c(0,34),ylim=c(0,2.3),)
   return(allosteric_list)
 }

@@ -37,29 +37,29 @@ Plot_heatmap_fitness<-function(input=input,assay_name=assay_name,anno_input=anno
   heatmap_text_anno[second_structure%in%c("a1","a2","a3","a4","a5"),second_structure_hm:=2]
   heatmap_text_anno[second_structure%in%c("b1","b2","b3","b4","b5","b6"),second_structure_hm:=3]
   heatmap_text_anno[second_structure%in%c("HVR"),second_structure_hm:=4]
-  ggplot2::ggplot()+
-    ggplot2::theme_classic()+
-    ggplot2::geom_tile(data=heatmap_tool_fitness_anno_single[position>1,],ggplot2::aes(x=position,y=codon1,fill=nor_fitness_nooverlap))+
-    ggplot2::scale_x_discrete(limits=c(2:188),labels=c(2:188))+
-    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 8, vjust = 0.5,hjust = 0.5, 
+  ggplot()+
+    theme_classic()+
+    geom_tile(data=heatmap_tool_fitness_anno_single[position>1,],aes(x=position,y=codon1,fill=nor_fitness_nooverlap))+
+    scale_x_discrete(limits=c(2:188),labels=c(2:188))+
+    theme(axis.text.x = element_text(size = 8, vjust = 0.5,hjust = 0.5, 
                                      color = c(NA,NA,NA,rep(c("black",NA,NA,NA,NA),37))))+
-    ggplot2::scale_fill_gradient2(low=colour_scheme[["red"]],mid="gray",high=colour_scheme[["blue"]],na.value = "white")+
-    ggplot2::ylab("Mutant aa")+
-    ggplot2::ggtitle(paste(assay_name,"fitness"))+
-    ggplot2::labs(fill=NULL)+
-    ggplot2::geom_text(data=heatmap_tool_fitness_anno_single[position>1&wtcodon1==codon1,],ggplot2::aes(x=position,y=codon1),label="-",size=3)+
-    ggplot2::theme(text = ggplot2::element_text(size=5),
-          axis.ticks.x=ggplot2::element_blank(),
-          axis.ticks.y=ggplot2::element_blank(),
+    scale_fill_gradient2(low=colour_scheme[["red"]],mid="gray",high=colour_scheme[["blue"]],na.value = "white")+
+    ylab("Mutant aa")+
+    ggtitle(paste(assay_name,"fitness"))+
+    labs(fill=NULL)+
+    geom_text(data=heatmap_tool_fitness_anno_single[position>1&wtcodon1==codon1,],aes(x=position,y=codon1),label="-",size=3)+
+    theme(text = element_text(size=5),
+          axis.ticks.x=element_blank(),
+          axis.ticks.y=element_blank(),
           legend.position="bottom",
-          legend.text = ggplot2::element_text(size=5),
-          axis.text.x = ggplot2::element_text(size =5, angle=90, vjust=.5, hjust=1),
-          axis.text.y = ggplot2::element_text(family="Courier",size=5, vjust = 1,hjust = -10,margin=ggplot2::margin(0,0,0,0)),
-          legend.key.height= ggplot2::unit(3.1, 'mm'),
-          legend.key.width = ggplot2::unit(3.1, 'mm'),
-          legend.key.size = ggplot2::unit(1,"mm"),
-          plot.margin=ggplot2::margin(0,0,0,0))+
-    ggplot2::coord_fixed()
+          legend.text = element_text(size=5),
+          axis.text.x = element_text(size =5, angle=90, vjust=.5, hjust=1),
+          axis.text.y = element_text(family="Courier New",size=5, vjust = 1,hjust = -10,margin=margin(0,0,0,0)),
+          legend.key.height= unit(3.1, 'mm'),
+          legend.key.width = unit(3.1, 'mm'),
+          legend.key.size = unit(1,"mm"),
+          plot.margin=margin(0,0,0,0))+
+    coord_fixed()
 }
 
 

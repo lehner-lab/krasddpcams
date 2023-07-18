@@ -66,7 +66,7 @@ Plot_ddG_betasheet<-function(
   data_plot_mutation[mutation_type=="GTP binding site",colors_type2:="GTP"]
   data_plot_mutation[mutation_type=="GTP binding site"&colors_type!="others",colors_type2:="GTP+beta sheet"]
   #data_plot_mutation
-  # ggplot2::ggplot(data_plot_mutation,aes(x=scHAmin_ligand_RAF,y=`mean_kcal/mol`))+
+  # ggplot(data_plot_mutation,aes(x=scHAmin_ligand_RAF,y=`mean_kcal/mol`))+
   #   geom_point(aes(color=colors_type2),size=1)+
   #   geom_hline(yintercept = reg_threshold,linetype =2)+
   #   geom_hline(yintercept = -reg_threshold,linetype =2)+
@@ -80,12 +80,12 @@ Plot_ddG_betasheet<-function(
   data_plot_mutation_beta<-within(data_plot_mutation_beta,
                                   colors_type,
                                   levels = c("b2","b3","b1","b4","b5","b6"))
-  ggplot2::ggplot(data_plot_mutation_beta,ggplot2::aes(x=factor(colors_type, level = c("b2","b3","b1","b4","b5","b6")),y=`mean_kcal/mol`))+
-    ggplot2::geom_violin()+
-    ggplot2::geom_jitter(size=1*0.35,height = 0)+
-    ggplot2::ylab("Binding free energy change \n(kcal/mol)")+
-    ggplot2::xlab("beta sheet")+
-    ggplot2::theme_classic()+
-    ggplot2::theme(text = ggplot2::element_text(size = 7),
-          axis.text = ggplot2::element_text(size = 7),legend.text = ggplot2::element_text(size = 7))
+  ggplot(data_plot_mutation_beta,aes(x=factor(colors_type, level = c("b2","b3","b1","b4","b5","b6")),y=`mean_kcal/mol`))+
+    geom_violin()+
+    geom_jitter(size=1*0.35,height = 0)+
+    ylab("Binding free energy change \n(kcal/mol)")+
+    xlab("beta sheet")+
+    theme_classic()+
+    theme(text = element_text(size = 7),
+          axis.text = element_text(size = 7),legend.text = element_text(size = 7))
 }

@@ -17,23 +17,26 @@ Plot_RAF_invitro_cor<-function(input=input,
   christina_mochi[mt=="WT"&`id.Raf.RBD.christina`=="WT",`mean_kcal/mol`:=0]
   christina_mochi_m<-lm(`mean_kcal/mol`~G_ITC,christina_mochi)
   christina_mochi[,ddG_ITC:=G_ITC-christina_mochi[id.Raf.RBD.christina=="WT"&mt=="WT",G_ITC]]
-  ggplot2::ggplot(christina_mochi,ggplot2::aes(x=ddG_ITC,y=`mean_kcal/mol`,label=mt))+
-    ggplot2::geom_smooth(method=lm, se=T,size=0.1,color=colour_scheme[["red"]])+
-    ggplot2::geom_point(size=0.1)+
-    ggplot2::xlab("Binding \u2206\u2206G to RAF1 (in vitro)\n(kcal/mol)")+
-    ggplot2::ylab("Binding \u2206\u2206G to RAF1 (inferred)\n(kcal/mol)")+
-    ggplot2::geom_pointrange(ggplot2::aes(ymin=`mean_kcal/mol`-`std_kcal/mol`, ymax=`mean_kcal/mol`+`std_kcal/mol`),size=0.1)+
-    ggplot2::geom_text_repel(size=7*0.35)+
-    ggplot2::annotate("text",x=0,y=2.0,,label = paste0("r = ",round(sqrt(summary(christina_mochi_m)$r.squared),2)) ,size=7*0.35)+
-    ggplot2::theme_classic2()+
-    ggplot2::theme(text = ggplot2::element_text(size=7),
+  ggplot(christina_mochi,aes(x=ddG_ITC,y=`mean_kcal/mol`,label=mt))+
+    geom_smooth(method=lm, se=T,size=0.1,color=colour_scheme[["red"]])+
+    geom_point(size=0.1)+
+    geom_hline(yintercept=0)+
+    geom_vline(xintercept=0)+
+    geom_abline(intercept = 0,slope=1,linetype="dashed")+
+    xlab("Binding \u2206\u2206G to RAF1 (in vitro)\n(kcal/mol)")+
+    ylab("Binding \u2206\u2206G to RAF1 (inferred)\n(kcal/mol)")+
+    geom_pointrange(aes(ymin=`mean_kcal/mol`-`std_kcal/mol`, ymax=`mean_kcal/mol`+`std_kcal/mol`),size=0.1)+
+    geom_text_repel(size=7*0.35)+
+    annotate("text",x=0.5,y=2.0,,label = paste0("r = ",round(sqrt(summary(christina_mochi_m)$r.squared),2)) ,size=7*0.35)+
+    theme_classic2()+
+    theme(text = element_text(size=7),
           legend.position="right",
-          legend.text = ggplot2::element_text(size=7),
-          axis.text.x = ggplot2::element_text(size =7,vjust=.5, hjust=1),
-          axis.text.y = ggplot2::element_text(size=7, vjust = .5,hjust = .5,margin=ggplot2::margin(0,0,0,0,"mm")),
-          legend.key.height= ggplot2::unit(3.1, 'mm'),
-          legend.key.width = ggplot2::unit(3.1, 'mm'),
-          legend.key.size = ggplot2::unit(1,"mm"),
-          plot.margin=ggplot2::margin(0,0,0,0))+
-    ggplot2::coord_fixed()
+          legend.text = element_text(size=7),
+          axis.text.x = element_text(size =7,vjust=.5, hjust=1),
+          axis.text.y = element_text(size=7, vjust = .5,hjust = .5,margin=margin(0,0,0,0,"mm")),
+          legend.key.height= unit(3.1, 'mm'),
+          legend.key.width = unit(3.1, 'mm'),
+          legend.key.size = unit(1,"mm"),
+          plot.margin=margin(0,0,0,0))+
+    coord_fixed()
 }

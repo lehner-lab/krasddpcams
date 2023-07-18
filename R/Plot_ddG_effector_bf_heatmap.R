@@ -51,24 +51,24 @@ Plot_ddG_effector_bf_heatmap<-function(ddG1=ddG1,
   output<-within(output, 
                  assay <- factor(assay, 
                                     levels = c("RAF1","PIK3CG","RALGDS")))
-  ggplot2::ggplot()+
-    ggplot2::geom_tile(data=output,mapping=ggplot2::aes(x=assay,y=mt_codon,fill=`mean_kcal/mol`))+
-    ggplot2::geom_text(data=output[Pos_real>1&wt_codon==mt_codon,],
-              mapping=ggplot2::aes(x=assay,y=mt_codon,label="-"),size=5*0.35)+
-    ggplot2::scale_fill_gradient2(low=colour_scheme[["blue"]],mid="gray",high=colour_scheme[["red"]],na.value = "white")+
-    ggplot2::facet_wrap(~Pos_wt,nrow = 1)+
-    ggplot2::ylab("Mutant AA")+
-    ggplot2::theme_bw()+
-    ggplot2::theme(axis.text.x = ggplot2::element_text(size =7, angle=90, vjust=.5, hjust=1),
-          axis.text.y = ggplot2::element_text(family="Courier New",size=5, vjust = 1,hjust = 1),
-          text = ggplot2::element_text(size=7),
-          axis.ticks.x=ggplot2::element_blank(),
-          axis.ticks.y=ggplot2::element_blank(),
+  ggplot()+
+    geom_tile(data=output,mapping=aes(x=assay,y=mt_codon,fill=`mean_kcal/mol`))+
+    geom_text(data=output[Pos_real>1&wt_codon==mt_codon,],
+              mapping=aes(x=assay,y=mt_codon,label="-"),size=5*0.35)+
+    scale_fill_gradient2(low=colour_scheme[["blue"]],mid="gray",high=colour_scheme[["red"]],na.value = "white")+
+    facet_wrap(~Pos_wt,nrow = 1)+
+    ylab("Mutant AA")+
+    theme_bw()+
+    theme(axis.text.x = element_text(size =7, angle=90, vjust=.5, hjust=1),
+          axis.text.y = element_text(family="Courier New",size=5, vjust = 1,hjust = 1),
+          text = element_text(size=7),
+          axis.ticks.x=element_blank(),
+          axis.ticks.y=element_blank(),
           legend.position="bottom",
-          legend.key.height= ggplot2::unit(3.1, 'mm'),
-          legend.key.width = ggplot2::unit(3.1, 'mm'),
-          legend.text = ggplot2::element_text(size=7),
-          strip.text.x = ggplot2::element_text(size=7),
-          strip.background = ggplot2::element_rect(colour="black", fill="white"))+
-    ggplot2::coord_fixed()
+          legend.key.height= unit(3.1, 'mm'),
+          legend.key.width = unit(3.1, 'mm'),
+          legend.text = element_text(size=7),
+          strip.text.x = element_text(size=7),
+          strip.background = element_rect(colour="black", fill="white"))+
+    coord_fixed()
 }
