@@ -20,4 +20,4 @@ Fitness, inferred free energy changes, structure, and other data are in **[here]
 
 # Main function
 
-'create_krasddpcams.R'
+'create_krasddpcams.R'(all process should be shorter than 1 hour)
