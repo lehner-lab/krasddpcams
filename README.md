@@ -17,7 +17,7 @@ To run the krasddpcams pipeline you will need the following software and associa
 
 # Required Data
 
-Fitness, inferred free energy changes, structure, and other data are in **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)**
+Fitness scores, inferred free energy changes and required miscellaneous files should be downloaded from **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)** and unzipped in your project directory (see 'base_dir' option) i.e. where output files should be written.
 
 # Installation Instructions
 
