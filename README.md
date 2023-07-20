@@ -32,7 +32,7 @@ Make sure you have git and conda installed and then run:
 
 ```
 # Install dependencies
-conda install r-base r-ggplot2 r-ggpubr r-ggrepel r-ROCR r-bio3d r-GGally r-plot3D r-Cairo r-ggstatsplot r-openxlsx r-data.table r-dplyr
+conda install r-base>=3.6.1 r-ggplot2 r-ggpubr r-ggrepel r-rocr r-bio3d r-ggally r-plot3d r-Cairo r-ggstatsplot r-openxlsx r-data.table r-dplyr
 
 # Open an R session and install the krasddpcams R package
 if(!require(devtools)) install.packages("devtools")
