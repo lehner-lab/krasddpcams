@@ -24,6 +24,8 @@ The following software is optional:
 * **[DiMSum](https://github.com/lehner-lab/DiMSum) v1.2.9** (pipeline for pre-processing deep mutational scanning data i.e. FASTQ to fitness)
 * **[MoCHI](https://github.com/lehner-lab/MoCHI)** (tool to fit mechanistic models to deep mutational scanning data i.e. fitness to free energy changes)
 
+Configuration files and bash scripts used for running DiMSum and MoCHI are also available **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)**.
+
 # Installation Instructions
 
 Make sure you have git and conda installed and then run:
