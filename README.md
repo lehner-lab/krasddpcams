@@ -28,10 +28,10 @@ Configuration files and additional scripts used for running DiMSum and MoCHI are
 
 # Installation Instructions
 
-Make sure you have git and conda installed and then run:
+Make sure you have git and conda installed and then run (expected install time <1h):
 
 ```
-# Install dependencies
+# Install dependencies (preferably in a fresh conda environment)
 conda install r-base>=3.6.1 r-ggplot2 r-ggpubr r-ggrepel r-rocr r-bio3d r-ggally r-plot3d r-Cairo r-ggstatsplot r-openxlsx r-data.table r-dplyr
 
 # Open an R session and install the krasddpcams R package
@@ -41,7 +41,7 @@ devtools::install_github("lehner-lab/krasddpcams")
 
 # Usage
 
-The top-level function **krasddpcams()** is the recommended entry point to the pipeline and by default reproduces the figures and results from the computational analyses described in the following publication: [The energetic and allosteric landscape for KRAS inhibition (Weng C, Faure AJ & Lehner B, 2022)](https://www.biorxiv.org/content/10.1101/2022.12.06.519122v1). See [Required Data](#required-data) for instructions on how to obtain all required data and miscellaneous files before running the pipeline. Expected run time is about 10min.
+The top-level function **krasddpcams()** is the recommended entry point to the pipeline and by default reproduces the figures and results from the computational analyses described in the following publication: [The energetic and allosteric landscape for KRAS inhibition (Weng C, Faure AJ & Lehner B, 2022)](https://www.biorxiv.org/content/10.1101/2022.12.06.519122v1). See [Required Data](#required-data) for instructions on how to obtain all required data and miscellaneous files before running the pipeline. Expected run time <20min.
 
 ```
 library(krasddpcams)
