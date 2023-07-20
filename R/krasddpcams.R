@@ -12,7 +12,10 @@ krasddpcams <- function(
   base_dir = "/users/blehner/afaure/DMS/Results/krasddpcams_proj"
   ){
 
+  #Set working directory and create output folders
   setwd(base_dir)
+  dir.create("FIGURES")
+  dir.create("RESULTS")
 
   ######
   #basic setting
