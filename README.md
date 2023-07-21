@@ -28,7 +28,7 @@ Configuration files and additional scripts used for running DiMSum and MoCHI are
 
 # Installation Instructions
 
-Make sure you have git and conda installed and then run (expected install time <1h):
+Make sure you have git and conda installed and then run (expected install time <5min):
 
 ```
 # Install dependencies (preferably in a fresh conda environment)
