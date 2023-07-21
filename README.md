@@ -32,10 +32,9 @@ Make sure you have git and conda installed and then run (expected install time <
 
 ```
 # Install dependencies (preferably in a fresh conda environment)
-conda install -c conda-forge r-base r-ggplot2 r-ggpubr r-ggrepel r-rocr r-bio3d r-ggally r-plot3d r-cairo r-ggstatsplot r-openxlsx r-data.table r-dplyr
+conda install -c conda-forge r-base r-ggplot2 r-ggpubr r-ggrepel r-rocr r-bio3d r-ggally r-plot3d r-cairo r-ggstatsplot r-openxlsx r-data.table r-dplyr r-devtools
 
 # Open an R session and install the krasddpcams R package
-if(!require(devtools)) install.packages("devtools")
 devtools::install_github("lehner-lab/krasddpcams")
 ```
 
