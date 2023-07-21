@@ -13,7 +13,7 @@ Here you'll find an R package with all scripts to reproduce the figures and resu
 
 To run the krasddpcams pipeline you will need the following software and associated packages:
 
-* **[_R_](https://www.r-project.org/) >=v3.6.1** (ggplot2, ggpubr, ggrepel, ROCR, bio3d, GGally, plot3D, Cairo, ggstatsplot, openxlsx, data.table, dplyr)
+* **[_R_](https://www.r-project.org/)** (ggplot2, ggpubr, ggrepel, ROCR, bio3d, GGally, plot3D, Cairo, ggstatsplot, openxlsx, data.table, dplyr)
 
 # Required Data
 
@@ -32,7 +32,7 @@ Make sure you have git and conda installed and then run (expected install time <
 
 ```
 # Install dependencies (preferably in a fresh conda environment)
-conda install -c conda-forge r-base>=3.6.1 r-ggplot2 r-ggpubr r-ggrepel r-rocr r-bio3d r-ggally r-plot3d r-cairo r-ggstatsplot r-openxlsx r-data.table r-dplyr
+conda install -c conda-forge r-base r-ggplot2 r-ggpubr r-ggrepel r-rocr r-bio3d r-ggally r-plot3d r-cairo r-ggstatsplot r-openxlsx r-data.table r-dplyr
 
 # Open an R session and install the krasddpcams R package
 if(!require(devtools)) install.packages("devtools")
