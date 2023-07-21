@@ -23,6 +23,7 @@ krasddpcams__plot_cor_gr_tecan_binding<-function(
   # get the real OD by subracting the blank
   real_od = do.call("rbind",apply(od, 1, function(x){ x - a[a$well == "O23", -1]}))
   pls2id = read.csv(plasmidid, sep=';')
+  names(pls2id)[1] <- "well"
   
   # creat file with real ODs and plasmid name
   df_od = data.frame(real_od)

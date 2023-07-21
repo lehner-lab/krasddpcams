@@ -338,7 +338,7 @@ krasddpcams <- function(
                                    chain_KRAS = "R",
                                    output_PDB_file="./FIGURES/figure5c_SOS_binding_ab_ddG_1nvw_R.pdb")
   krasddpcams__weighted_mean_ddG_structure_fromweighteddata(weighted_mean_ddG=weighted_mean_abs_ddG_SOS,
-                                   input_PDB = "./DATA/figure5C_SOS_binding_ab_ddG_1nvw_R.pdb",
+                                   input_PDB = "./FIGURES/figure5c_SOS_binding_ab_ddG_1nvw_R.pdb",
                                    chain_KRAS = "Q",
                                    output_PDB_file="./FIGURES/figure5c_SOS_binding_ab_ddG_1nvv_RQ.pdb")
 
