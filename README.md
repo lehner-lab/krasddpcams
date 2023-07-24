@@ -19,13 +19,6 @@ To run the krasddpcams pipeline you will need the following software and associa
 
 Fitness scores, inferred free energy changes and required miscellaneous files should be downloaded from **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)** and unzipped in your project directory (see 'base_dir' option) i.e. where output files should be written.
 
-The following software is optional:
-
-* **[DiMSum](https://github.com/lehner-lab/DiMSum) v1.2.9** (pipeline for pre-processing deep mutational scanning data i.e. FASTQ to fitness)
-* **[MoCHI](https://github.com/lehner-lab/MoCHI)** (tool to fit mechanistic models to deep mutational scanning data i.e. fitness to free energy changes)
-
-Configuration files and additional scripts used for running DiMSum and MoCHI are also available **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)**.
-
 # Installation Instructions
 
 Make sure you have git and conda installed and then run (expected install time <5min):
@@ -46,3 +39,14 @@ The top-level function **krasddpcams()** is the recommended entry point to the p
 library(krasddpcams)
 krasddpcams(base_dir = "MY_PROJECT_DIRECTORY")
 ```
+
+# Additional scripts and software
+
+The following software packages are required for pre-processing of raw FASTQ files and subsequent thermodynamic model fitting:
+
+* **[DiMSum](https://github.com/lehner-lab/DiMSum) v1.2.9** (pipeline for pre-processing deep mutational scanning data i.e. FASTQ to fitness)
+* **[MoCHI](https://github.com/lehner-lab/MoCHI)** (tool to fit mechanistic models to deep mutational scanning data i.e. fitness to free energy changes)
+
+Configuration files and additional scripts for running DiMSum and MoCHI are available in the "DiMSum" and "MoCHI" subfolders **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)**.
+
+Python scripts and required data to reproduce the surface plasmon resonance (SPR) plots (ED Fig. 2h and ED Fig. 6a) are availabe in the "SPR" subfolder **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)**.
