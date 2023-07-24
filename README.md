@@ -47,6 +47,6 @@ The following software packages are required for pre-processing of raw FASTQ fil
 * **[DiMSum](https://github.com/lehner-lab/DiMSum) v1.2.9** (pipeline for pre-processing deep mutational scanning data i.e. FASTQ to fitness)
 * **[MoCHI](https://github.com/lehner-lab/MoCHI)** (tool to fit mechanistic models to deep mutational scanning data i.e. fitness to free energy changes)
 
-Configuration files and additional scripts for running DiMSum and MoCHI are available in the "DiMSum" and "MoCHI" subfolders **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)**.
+Configuration files and additional scripts for running DiMSum and MoCHI are available in the "DiMSum" and "MoCHI" folders **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)**.
 
-Python scripts and required data to reproduce the surface plasmon resonance (SPR) plots (ED Fig. 2h and ED Fig. 6a) are availabe in the "SPR" subfolder **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)**.
+Python scripts and required data to reproduce the surface plasmon resonance (SPR) plots (ED Fig. 2h and ED Fig. 6a) are availabe in the "SPR" folder **[here](https://crgcnag-my.sharepoint.com/:f:/g/personal/cweng_crg_es/EliX349TTkpIoMomBwphyRMBYI17nEt4XZ45XcTvWtpuyw)**.
