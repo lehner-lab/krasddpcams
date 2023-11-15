@@ -18,7 +18,7 @@ krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test<-function(prediction=predicti
                                            assay_sele=assay_sele,
                                            wt_aa_input=wt_aa_input){
   pre<-fread(prediction)
-  pre_pos<-Pos_id(input = pre,wt_aa = wt_aa_input)
+  pre_pos<-krasddpcams__pos_id(input = pre,wt_aa = wt_aa_input)
   pre_pos
   load(block1_dimsum_df)
   block1<-as.data.table(all_variants)
