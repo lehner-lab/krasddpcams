@@ -5,7 +5,7 @@
 \title{krasddpcams}
 \usage{
 krasddpcams(
-  base_dir = "/nfs/users/blehner/afaure/DMS/Results/krasddpcams_proj/"
+  base_dir = "/Users/cweng/Desktop/Chenchun_KRAS_paper/Github_updating_20231115/"
 )
 }
 \arguments{
