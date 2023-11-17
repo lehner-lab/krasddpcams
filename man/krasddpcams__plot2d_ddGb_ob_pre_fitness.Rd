@@ -2,7 +2,7 @@
 % Please edit documentation in R/krasddpcams__plot2d_ddGb_ob_pre_fitness.R
 \name{krasddpcams__plot2d_ddGb_ob_pre_fitness}
 \alias{krasddpcams__plot2d_ddGb_ob_pre_fitness}
-\title{A Function to plot2D folding fitness against folding ddG}
+\title{A Function to plot2D predicted fitness against observed fitness}
 \usage{
 krasddpcams__plot2d_ddGb_ob_pre_fitness(
   prediction = prediction,
@@ -30,5 +30,5 @@ krasddpcams__plot2d_ddGb_ob_pre_fitness(
 Nothing
 }
 \description{
-This function allows you to plot folding fitness against folding ddG.
+This function allows you to plot predicted fitness against observed fitness.
 }

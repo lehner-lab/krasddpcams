@@ -1,7 +1,7 @@
 
-#' A Function to plot2D folding fitness against folding ddG
+#' A Function to plot2D predicted fitness against observed fitness
 #' 
-#' This function allows you to plot folding fitness against folding ddG.
+#' This function allows you to plot predicted fitness against observed fitness.
 #' @param prediction fitness data prediction
 #' @param block1_dimsum_df block1_dimsum_df
 #' @param block2_dimsum_df block2_dimsum_df

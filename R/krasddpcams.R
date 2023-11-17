@@ -9,7 +9,7 @@
 #' @export
 #' @import data.table
 krasddpcams <- function(
-  base_dir = "/Users/cweng/Desktop/Chenchun_KRAS_paper/Github_updating_20231108/"
+  base_dir = "/nfs/users/blehner/afaure/DMS/Results/krasddpcams_proj/"
   ){
 
   #Set working directory and create output folders
@@ -1177,165 +1177,181 @@ krasddpcams <- function(
   # write.csv(ddG_b_full_RAF1_MAVE,"./RESULTS/binding_ddG_fullRAF1_MAVEdb.csv",quote = FALSE,row.names = F)
   # 
   # ######
-  # #train dataset
+  # #Random test data comparison 
   # ######
-  # new
+  # Random test data (random singles & doubles)
   # folding
-  model_folding_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA_new_model//predicted_phenotypes_all.txt",
-                                                           block1_dimsum_df = "./DATA/CW_RAS_abundance_1_fitness_replicates_fullseq.RData",
-                                                           block2_dimsum_df = "./DATA/CW_RAS_abundance_2_fitness_replicates_fullseq.RData",
-                                                           block3_dimsum_df = "./DATA/CW_RAS_abundance_3_fitness_replicates_fullseq.RData",
-                                                           assay_sele = "folding",
-                                                           wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_folding_pre_ob_fitness_R2_training.pdf",model_folding_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_folding_pre_ob_fitness_R2_test.pdf",model_folding_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_folding_new[["R_squared"]], file = "./RESULTS/model_folding_new.txt", sep = "\t")
+  model_folding_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/Revision/randomtest/Mochi/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_abundance_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_abundance_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_abundance_3_fitness_replicates_fullseq.RData",
+    assay_sele = "folding",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_folding_pre_ob_fitness_R2_training.pdf",model_folding_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_folding_pre_ob_fitness_R2_test.pdf",model_folding_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_folding_new[["R_squared"]], file = "./RESULTS/model_folding_randomtest.txt", sep = "\t")
   rm(model_folding_new)
   # RAF1
-  model_RAF1_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA_new_model//predicted_phenotypes_all.txt",
-                                                        block1_dimsum_df = "./DATA/CW_RAS_binding_RAF_1_fitness_replicates_fullseq.RData",
-                                                        block2_dimsum_df = "./DATA/CW_RAS_binding_RAF_2_fitness_replicates_fullseq.RData",
-                                                        block3_dimsum_df = "./DATA/CW_RAS_binding_RAF_3_fitness_replicates_fullseq.RData",
-                                                        assay_sele = "RAF1",
-                                                        wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_RAF1_pre_ob_fitness_R2_training.pdf",model_RAF1_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_RAF1_pre_ob_fitness_R2_test.pdf",model_RAF1_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_RAF1_new[["R_squared"]], file = "./RESULTS/model_RAF1_new.txt", sep = "\t")
+  model_RAF1_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/Revision/randomtest/Mochi/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_RAF_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_RAF_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_RAF_3_fitness_replicates_fullseq.RData",
+    assay_sele = "RAF1",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_RAF1_pre_ob_fitness_R2_training.pdf",model_RAF1_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_RAF1_pre_ob_fitness_R2_test.pdf",model_RAF1_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_RAF1_new[["R_squared"]], file = "./RESULTS/model_RAF1_randomtest.txt", sep = "\t")
   rm(model_RAF1_new)
   # PIK3CG
-  model_PIK3CG_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA_new_model//predicted_phenotypes_all.txt",
-                                                          block1_dimsum_df = "./DATA/CW_RAS_binding_PI3_1_fitness_replicates_fullseq.RData",
-                                                          block2_dimsum_df = "./DATA/CW_RAS_binding_PI3_2_fitness_replicates_fullseq.RData",
-                                                          block3_dimsum_df = "./DATA/CW_RAS_binding_PI3_3_fitness_replicates_fullseq.RData",
-                                                          assay_sele = "PIK3CG",
-                                                          wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_PIK3CG_pre_ob_fitness_R2_training.pdf",model_PIK3CG_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_PIK3CG_pre_ob_fitness_R2_test.pdf",model_PIK3CG_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_PIK3CG_new[["R_squared"]], file = "./RESULTS/model_PIK3CG_new.txt", sep = "\t")
+  model_PIK3CG_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/Revision/randomtest/Mochi/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_PI3_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_PI3_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_PI3_3_fitness_replicates_fullseq.RData",
+    assay_sele = "PIK3CG",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_PIK3CG_pre_ob_fitness_R2_training.pdf",model_PIK3CG_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_PIK3CG_pre_ob_fitness_R2_test.pdf",model_PIK3CG_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_PIK3CG_new[["R_squared"]], file = "./RESULTS/model_PIK3CG_randomtest.txt", sep = "\t")
   rm(model_PIK3CG_new)
   # RALGDS
-  model_RALGDS_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA_new_model//predicted_phenotypes_all.txt",
-                                                          block1_dimsum_df = "./DATA/CW_RAS_binding_RAL_1_fitness_replicates_fullseq.RData",
-                                                          block2_dimsum_df = "./DATA/CW_RAS_binding_RAL_2_fitness_replicates_fullseq.RData",
-                                                          block3_dimsum_df = "./DATA/CW_RAS_binding_RAL_3_fitness_replicates_fullseq.RData",
-                                                          assay_sele = "RALGDS",
-                                                          wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_RALGDS_pre_ob_fitness_R2_training.pdf",model_RALGDS_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_RALGDS_pre_ob_fitness_R2_test.pdf",model_RALGDS_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_RALGDS_new[["R_squared"]], file = "./RESULTS/model_RALGDS_new.txt", sep = "\t")
+  model_RALGDS_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/Revision/randomtest/Mochi/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_RAL_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_RAL_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_RAL_3_fitness_replicates_fullseq.RData",
+    assay_sele = "RALGDS",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_RALGDS_pre_ob_fitness_R2_training.pdf",model_RALGDS_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_RALGDS_pre_ob_fitness_R2_test.pdf",model_RALGDS_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_RALGDS_new[["R_squared"]], file = "./RESULTS/model_RALGDS_randomtest.txt", sep = "\t")
   rm(model_RALGDS_new)
   # SOS1
-  model_SOS1_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA_new_model//predicted_phenotypes_all.txt",
-                                                        block1_dimsum_df = "./DATA/CW_RAS_binding_SOS_1_fitness_replicates_fullseq.RData",
-                                                        block2_dimsum_df = "./DATA/CW_RAS_binding_SOS_2_fitness_replicates_fullseq.RData",
-                                                        block3_dimsum_df = "./DATA/CW_RAS_binding_SOS_3_fitness_replicates_fullseq.RData",
-                                                        assay_sele = "SOS1",
-                                                        wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_SOS1_pre_ob_fitness_R2_training.pdf",model_SOS1_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_SOS1_pre_ob_fitness_R2_test.pdf",model_SOS1_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_SOS1_new[["R_squared"]], file = "./RESULTS/model_SOS1_new.txt", sep = "\t")
+  model_SOS1_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/Revision/randomtest/Mochi/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_SOS_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_SOS_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_SOS_3_fitness_replicates_fullseq.RData",
+    assay_sele = "SOS1",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_SOS1_pre_ob_fitness_R2_training.pdf",model_SOS1_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_SOS1_pre_ob_fitness_R2_test.pdf",model_SOS1_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_SOS1_new[["R_squared"]], file = "./RESULTS/model_SOS1_randomtest.txt", sep = "\t")
   rm(model_SOS1_new)
   # DARPinK27
-  model_DARPinK27_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA_new_model//predicted_phenotypes_all.txt",
-                                                             block1_dimsum_df = "./DATA/CW_RAS_binding_K27_1_fitness_replicates_fullseq.RData",
-                                                             block2_dimsum_df = "./DATA/CW_RAS_binding_K27_2_fitness_replicates_fullseq.RData",
-                                                             block3_dimsum_df = "./DATA/CW_RAS_binding_K27_3_fitness_replicates_fullseq.RData",
-                                                             assay_sele = "DARPin K27",
-                                                             wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_DARPinK27_pre_ob_fitness_R2_training.pdf",model_DARPinK27_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_DARPinK27_pre_ob_fitness_R2_test.pdf",model_DARPinK27_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_DARPinK27_new[["R_squared"]], file = "./RESULTS/model_DARPinK27_new.txt", sep = "\t")
+  model_DARPinK27_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/Revision/randomtest/Mochi/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_K27_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_K27_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_K27_3_fitness_replicates_fullseq.RData",
+    assay_sele = "DARPin K27",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_DARPinK27_pre_ob_fitness_R2_training.pdf",model_DARPinK27_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_DARPinK27_pre_ob_fitness_R2_test.pdf",model_DARPinK27_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_DARPinK27_new[["R_squared"]], file = "./RESULTS/model_DARPinK27_randomtest.txt", sep = "\t")
   rm(model_DARPinK27_new)
   # DARPinK55
-  model_DARPinK55_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA_new_model//predicted_phenotypes_all.txt",
-                                                             block1_dimsum_df = "./DATA/CW_RAS_binding_K55_1_fitness_replicates_fullseq.RData",
-                                                             block2_dimsum_df = "./DATA/CW_RAS_binding_K55_2_fitness_replicates_fullseq.RData",
-                                                             block3_dimsum_df = "./DATA/CW_RAS_binding_K55_3_fitness_replicates_fullseq.RData",
-                                                             assay_sele = "DARPin K55",
-                                                             wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_DARPinK55_pre_ob_fitness_R2_training.pdf",model_DARPinK55_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  ggplot2::ggsave("./Figures_revision/figure_newmodel_DARPinK55_pre_ob_fitness_R2_test.pdf",model_DARPinK55_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_DARPinK55_new[["R_squared"]], file = "./RESULTS/model_DARPinK55_new.txt", sep = "\t")
+  model_DARPinK55_new<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/Revision/randomtest/Mochi/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_K55_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_K55_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_K55_3_fitness_replicates_fullseq.RData",
+    assay_sele = "DARPin K55",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_DARPinK55_pre_ob_fitness_R2_training.pdf",model_DARPinK55_new[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  ggplot2::ggsave("./FIGURES/figureSX_randomtest_DARPinK55_pre_ob_fitness_R2_test.pdf",model_DARPinK55_new[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_DARPinK55_new[["R_squared"]], file = "./RESULTS/model_DARPinK55_randomtest.txt", sep = "\t")
   rm(model_DARPinK55_new)
-  # old
+
+  # Original test data (random doubles)
   # folding
-  model_folding_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA//predicted_phenotypes_all.txt",
-                                                           block1_dimsum_df = "./DATA/CW_RAS_abundance_1_fitness_replicates_fullseq.RData",
-                                                           block2_dimsum_df = "./DATA/CW_RAS_abundance_2_fitness_replicates_fullseq.RData",
-                                                           block3_dimsum_df = "./DATA/CW_RAS_abundance_3_fitness_replicates_fullseq.RData",
-                                                           assay_sele = "folding",
-                                                           wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_oldmodel_folding_pre_ob_fitness_R2_test.pdf",model_folding_old[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  ggplot2::ggsave("./Figures_revision/figure_oldmodel_folding_pre_ob_fitness_R2_training.pdf",model_folding_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_folding_old[["R_squared"]], file = "./RESULTS/model_folding_old.txt", sep = "\t")
+  model_folding_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_abundance_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_abundance_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_abundance_3_fitness_replicates_fullseq.RData",
+    assay_sele = "folding",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_orig_folding_pre_ob_fitness_R2_test.pdf",model_folding_old[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  ggplot2::ggsave("./FIGURES/figureSX_orig_folding_pre_ob_fitness_R2_training.pdf",model_folding_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_folding_old[["R_squared"]], file = "./RESULTS/model_folding_orig.txt", sep = "\t")
   rm(model_folding_old)
   # RAF1
-  model_RAF1_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA//predicted_phenotypes_all.txt",
-                                                        block1_dimsum_df = "./DATA/CW_RAS_binding_RAF_1_fitness_replicates_fullseq.RData",
-                                                        block2_dimsum_df = "./DATA/CW_RAS_binding_RAF_2_fitness_replicates_fullseq.RData",
-                                                        block3_dimsum_df = "./DATA/CW_RAS_binding_RAF_3_fitness_replicates_fullseq.RData",
-                                                        assay_sele = "RAF1",
-                                                        wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_oldmodel_RAF1_pre_ob_fitness_R2_test.pdf",model_RAF1_old[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  ggplot2::ggsave("./Figures_revision/figure_oldmodel_RAF1_pre_ob_fitness_R2_training.pdf",model_RAF1_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_RAF1_old[["R_squared"]], file = "./RESULTS/model_RAF1_old.txt", sep = "\t")
+  model_RAF1_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_RAF_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_RAF_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_RAF_3_fitness_replicates_fullseq.RData",
+    assay_sele = "RAF1",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_orig_RAF1_pre_ob_fitness_R2_test.pdf",model_RAF1_old[["test"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  ggplot2::ggsave("./FIGURES/figureSX_orig_RAF1_pre_ob_fitness_R2_training.pdf",model_RAF1_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_RAF1_old[["R_squared"]], file = "./RESULTS/model_RAF1_orig.txt", sep = "\t")
   rm(model_RAF1_old)
   # PIK3CG
-  model_PIK3CG_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA//predicted_phenotypes_all.txt",
-                                                          block1_dimsum_df = "./DATA/CW_RAS_binding_PI3_1_fitness_replicates_fullseq.RData",
-                                                          block2_dimsum_df = "./DATA/CW_RAS_binding_PI3_2_fitness_replicates_fullseq.RData",
-                                                          block3_dimsum_df = "./DATA/CW_RAS_binding_PI3_3_fitness_replicates_fullseq.RData",
-                                                          assay_sele = "PIK3CG",
-                                                          wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_oldmodel_PIK3CG_pre_ob_fitness_R2_training.pdf",model_PIK3CG_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_PIK3CG_old[["R_squared"]], file = "./RESULTS/model_PIK3CG_old.txt", sep = "\t")
+  model_PIK3CG_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_PI3_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_PI3_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_PI3_3_fitness_replicates_fullseq.RData",
+    assay_sele = "PIK3CG",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_orig_PIK3CG_pre_ob_fitness_R2_training.pdf",model_PIK3CG_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_PIK3CG_old[["R_squared"]], file = "./RESULTS/model_PIK3CG_orig.txt", sep = "\t")
   rm(model_PIK3CG_old)
   # RALGDS
-  model_RALGDS_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA//predicted_phenotypes_all.txt",
-                                                          block1_dimsum_df = "./DATA/CW_RAS_binding_RAL_1_fitness_replicates_fullseq.RData",
-                                                          block2_dimsum_df = "./DATA/CW_RAS_binding_RAL_2_fitness_replicates_fullseq.RData",
-                                                          block3_dimsum_df = "./DATA/CW_RAS_binding_RAL_3_fitness_replicates_fullseq.RData",
-                                                          assay_sele = "RALGDS",
-                                                          wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_oldmodel_RALGDS_pre_ob_fitness_R2_training.pdf",model_RALGDS_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_RALGDS_old[["R_squared"]], file = "./RESULTS/model_RALGDS_old.txt", sep = "\t")
+  model_RALGDS_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_RAL_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_RAL_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_RAL_3_fitness_replicates_fullseq.RData",
+    assay_sele = "RALGDS",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_orig_RALGDS_pre_ob_fitness_R2_training.pdf",model_RALGDS_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_RALGDS_old[["R_squared"]], file = "./RESULTS/model_RALGDS_orig.txt", sep = "\t")
   rm(model_RALGDS_old)
   # SOS1
-  model_SOS1_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA//predicted_phenotypes_all.txt",
-                                                        block1_dimsum_df = "./DATA/CW_RAS_binding_SOS_1_fitness_replicates_fullseq.RData",
-                                                        block2_dimsum_df = "./DATA/CW_RAS_binding_SOS_2_fitness_replicates_fullseq.RData",
-                                                        block3_dimsum_df = "./DATA/CW_RAS_binding_SOS_3_fitness_replicates_fullseq.RData",
-                                                        assay_sele = "SOS1",
-                                                        wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_oldmodel_SOS1_pre_ob_fitness_R2_training.pdf",model_SOS1_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_SOS1_old[["R_squared"]], file = "./RESULTS/model_SOS1_old.txt", sep = "\t")
+  model_SOS1_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_SOS_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_SOS_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_SOS_3_fitness_replicates_fullseq.RData",
+    assay_sele = "SOS1",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_orig_SOS1_pre_ob_fitness_R2_training.pdf",model_SOS1_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_SOS1_old[["R_squared"]], file = "./RESULTS/model_SOS1_orig.txt", sep = "\t")
   rm(model_SOS1_old)
   # DARPinK27
-  model_DARPinK27_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA//predicted_phenotypes_all.txt",
-                                                             block1_dimsum_df = "./DATA/CW_RAS_binding_K27_1_fitness_replicates_fullseq.RData",
-                                                             block2_dimsum_df = "./DATA/CW_RAS_binding_K27_2_fitness_replicates_fullseq.RData",
-                                                             block3_dimsum_df = "./DATA/CW_RAS_binding_K27_3_fitness_replicates_fullseq.RData",
-                                                             assay_sele = "DARPin K27",
-                                                             wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_oldmodel_DARPinK27_pre_ob_fitness_R2_training.pdf",model_DARPinK27_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_DARPinK27_old[["R_squared"]], file = "./RESULTS/model_DARPinK27_old.txt", sep = "\t")
+  model_DARPinK27_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_K27_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_K27_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_K27_3_fitness_replicates_fullseq.RData",
+    assay_sele = "DARPin K27",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_orig_DARPinK27_pre_ob_fitness_R2_training.pdf",model_DARPinK27_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_DARPinK27_old[["R_squared"]], file = "./RESULTS/model_DARPinK27_orig.txt", sep = "\t")
   rm(model_DARPinK27_old)
   # DARPinK55
-  model_DARPinK55_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(prediction="./DATA//predicted_phenotypes_all.txt",
-                                                             block1_dimsum_df = "./DATA/CW_RAS_binding_K55_1_fitness_replicates_fullseq.RData",
-                                                             block2_dimsum_df = "./DATA/CW_RAS_binding_K55_2_fitness_replicates_fullseq.RData",
-                                                             block3_dimsum_df = "./DATA/CW_RAS_binding_K55_3_fitness_replicates_fullseq.RData",
-                                                             assay_sele = "DARPin K55",
-                                                             wt_aa_input=wt_aa)
-  ggplot2::ggsave("./Figures_revision/figure_oldmodel_DARPinK55_pre_ob_fitness_R2_training.pdf",model_DARPinK55_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
-  fwrite(model_DARPinK55_old[["R_squared"]], file = "./RESULTS/model_DARPinK55_old.txt", sep = "\t")
+  model_DARPinK55_old<-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test(
+    prediction="./DATA/predicted_phenotypes_all.txt",
+    block1_dimsum_df = "./DATA/CW_RAS_binding_K55_1_fitness_replicates_fullseq.RData",
+    block2_dimsum_df = "./DATA/CW_RAS_binding_K55_2_fitness_replicates_fullseq.RData",
+    block3_dimsum_df = "./DATA/CW_RAS_binding_K55_3_fitness_replicates_fullseq.RData",
+    assay_sele = "DARPin K55",
+    wt_aa_input=wt_aa)
+  ggplot2::ggsave("./FIGURES/figureSX_orig_DARPinK55_pre_ob_fitness_R2_training.pdf",model_DARPinK55_old[["training"]], device = cairo_pdf,height = 35,width=60,units = "mm")
+  fwrite(model_DARPinK55_old[["R_squared"]], file = "./RESULTS/model_DARPinK55_orig.txt", sep = "\t")
   rm(model_DARPinK55_old)
   ############
   ### plot r2 of two models
   ############
-  krasddpcams__plot_model_performance_comparison_R2(phenotype=c("folding","RAF1","PIK3CG","RALGDS","SOS1","DARPinK27","DARPinK55"),
-                                                    model_type=c("old","new"))
-  ggsave("./Figures_revision/figure_model_R2_comparison.pdf", device = cairo_pdf,height = 90,width=160,units = "mm")
+  krasddpcams__plot_model_performance_comparison_R2(
+    phenotype=c("folding","RAF1","PIK3CG","RALGDS","SOS1","DARPinK27","DARPinK55"),
+    model_type=c("orig","randomtest"))
+  ggplot2::ggsave("./FIGURES/figureSX_model_R2_comparison.pdf", device = cairo_pdf,height = 90,width=160,units = "mm")
 }
 
 

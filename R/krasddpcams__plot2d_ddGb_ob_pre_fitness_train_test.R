@@ -1,3 +1,4 @@
+
 #' A Function to plot2D predicted fitness against observed fitness
 #' 
 #' This function allows you to plot predicted fitness against observed fitness.
@@ -8,17 +9,19 @@
 #' @param assay_sele assay_sele
 #' @param wt_aa_input wt_aa_input
 #' 
-#' @return model_performance
+#' @return list of ggplot objects and performance results 
 #' @export
 #' @import data.table
-krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test<-function(prediction=prediction,
-                                           block1_dimsum_df=block1_dimsum_df,
-                                           block2_dimsum_df=block2_dimsum_df,
-                                           block3_dimsum_df=block3_dimsum_df,
-                                           assay_sele=assay_sele,
-                                           wt_aa_input=wt_aa_input){
+krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test<-function(
+  prediction=prediction,
+  block1_dimsum_df=block1_dimsum_df,
+  block2_dimsum_df=block2_dimsum_df,
+  block3_dimsum_df=block3_dimsum_df,
+  assay_sele=assay_sele,
+  wt_aa_input=wt_aa_input
+  ){
   pre<-fread(prediction)
-  pre_pos<-Pos_id(input = pre,wt_aa = wt_aa_input)
+  pre_pos<-krasddpcams__pos_id(input = pre,wt_aa = wt_aa_input)
   pre_pos
   load(block1_dimsum_df)
   block1<-as.data.table(all_variants)
@@ -91,44 +94,44 @@ krasddpcams__plot2d_ddGb_ob_pre_fitness_train_test<-function(prediction=predicti
   lm_mochi_training<-lm(predicted_fitness~fitness,pre_nor_training[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,])
   
   model_performance<-list()
-  model_performance[["training"]]<-ggplot(data=pre_nor_training[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,],aes(x=fitness,y=predicted_fitness))+
-    stat_binhex(bins = 50,size=0,color="black") +
-    scale_fill_gradient(low="white",high="black",trans="log10",guide = guide_colorbar(barwidth = 0.5,barheight = 1.5)) +
-    geom_hline(yintercept=0)+
-    geom_vline(xintercept=0)+
-    geom_abline(intercept = 0,slope=1,linetype="dashed")+
-    annotate("text",x=-1,y=0.5,
+  model_performance[["training"]]<-ggplot2::ggplot(data=pre_nor_training[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,],ggplot2::aes(x=fitness,y=predicted_fitness))+
+    ggplot2::stat_binhex(bins = 50,size=0,color="black") +
+    ggplot2::scale_fill_gradient(low="white",high="black",trans="log10",guide = ggplot2::guide_colorbar(barwidth = 0.5,barheight = 1.5)) +
+    ggplot2::geom_hline(yintercept=0)+
+    ggplot2::geom_vline(xintercept=0)+
+    ggplot2::geom_abline(intercept = 0,slope=1,linetype="dashed")+
+    ggplot2::annotate("text",x=-1,y=0.5,
              label = paste0("R\u00B2 = ",round(summary(lm_mochi_training)$r.squared,2)),
              size=7*0.35 )+
-    theme_classic()+
-    xlab("Observed fitness")+
-    ylab("Predicted fitness")+
-    ggtitle(assay_sele)+
-    theme(text = element_text(size=7),
-          axis.text = element_text(size=7),
-          legend.text = element_text(size=7),
-          plot.title = element_text(size=7))+
-    coord_fixed()
+    ggplot2::theme_classic()+
+    ggplot2::xlab("Observed fitness")+
+    ggplot2::ylab("Predicted fitness")+
+    ggplot2::ggtitle(assay_sele)+
+    ggplot2::theme(text = ggplot2::element_text(size=7),
+          axis.text = ggplot2::element_text(size=7),
+          legend.text = ggplot2::element_text(size=7),
+          plot.title = ggplot2::element_text(size=7))+
+    ggplot2::coord_fixed()
   pre_nor_test<-pre_nor[Fold==dataset&!is.na(Fold),]
   lm_mochi_test<-lm(predicted_fitness~fitness,pre_nor_test[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,])
-  model_performance[["test"]]<-ggplot(data=pre_nor_test[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,],aes(x=fitness,y=predicted_fitness))+
-    stat_binhex(bins = 50,size=0,color="black") +
-    scale_fill_gradient(low="white",high="black",trans="log10",guide = guide_colorbar(barwidth = 0.5,barheight = 1.5)) +
-    geom_hline(yintercept=0)+
-    geom_vline(xintercept=0)+
-    geom_abline(intercept = 0,slope=1,linetype="dashed")+
-    annotate("text",x=-1,y=0.5,
+  model_performance[["test"]]<-ggplot2::ggplot(data=pre_nor_test[phenotype==1+nb|phenotype==2+nb|phenotype==3+nb,],ggplot2::aes(x=fitness,y=predicted_fitness))+
+    ggplot2::stat_binhex(bins = 50,size=0,color="black") +
+    ggplot2::scale_fill_gradient(low="white",high="black",trans="log10",guide = ggplot2::guide_colorbar(barwidth = 0.5,barheight = 1.5)) +
+    ggplot2::geom_hline(yintercept=0)+
+    ggplot2::geom_vline(xintercept=0)+
+    ggplot2::geom_abline(intercept = 0,slope=1,linetype="dashed")+
+    ggplot2::annotate("text",x=-1,y=0.5,
              label = paste0("R\u00B2 = ",round(summary(lm_mochi_test)$r.squared,2)),
              size=7*0.35 )+
-    theme_classic()+
-    xlab("Observed fitness")+
-    ylab("Predicted fitness")+
-    ggtitle(assay_sele)+
-    theme(text = element_text(size=7),
-          axis.text = element_text(size=7),
-          legend.text = element_text(size=7),
-          plot.title = element_text(size=7))+
-    coord_fixed()
+    ggplot2::theme_classic()+
+    ggplot2::xlab("Observed fitness")+
+    ggplot2::ylab("Predicted fitness")+
+    ggplot2::ggtitle(assay_sele)+
+    ggplot2::theme(text = ggplot2::element_text(size=7),
+          axis.text = ggplot2::element_text(size=7),
+          legend.text = ggplot2::element_text(size=7),
+          plot.title = ggplot2::element_text(size=7))+
+    ggplot2::coord_fixed()
   model_performance[["R_squared"]]<-data.table(dataset=c("training","test"),R_squared=c(summary(lm_mochi_training)$r.squared,summary(lm_mochi_test)$r.squared))
   return(model_performance)
 }

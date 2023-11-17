@@ -4,7 +4,9 @@
 \alias{krasddpcams}
 \title{krasddpcams}
 \usage{
-krasddpcams(base_dir = "/users/blehner/afaure/DMS/Results/krasddpcams_proj")
+krasddpcams(
+  base_dir = "/nfs/users/blehner/afaure/DMS/Results/krasddpcams_proj/"
+)
 }
 \arguments{
 \item{base_dir}{Base directory for all output files (default:NB private CRG server path; change accordingly)}
